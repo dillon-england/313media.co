@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — 313 Media Co</title>
+    <meta name="description" content="Built in Detroit. 313 Media Co was founded by Dillon England to help B2B companies turn podcasts into pipeline.">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --cream: #f5f0e6;
+            --black: #0a0a0a;
+            --charcoal: #1a1a1a;
+            --orange: #f97316;
+            --stone: #8a8279;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Barlow', sans-serif;
+            background: var(--cream);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: var(--cream);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .nav-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-decoration: none;
+            line-height: 1;
+        }
+        .nav-logo .logo-313 {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.8rem;
+            color: var(--cream);
+            -webkit-text-stroke: 2px var(--orange);
+            paint-order: stroke fill;
+            filter: drop-shadow(1px 1px 0 rgba(0,0,0,0.2));
+        }
+        .nav-logo .logo-text {
+            font-family: 'Barlow', sans-serif;
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            color: var(--black);
+            margin-top: 2px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--black);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--orange); }
+        .nav-cta {
+            background: var(--orange);
+            color: var(--black) !important;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 700 !important;
+        }
+        .nav-cta:hover { background: #ea580c; }
+
+        /* PAGE HEADER */
+        .page-header {
+            padding: 160px 40px 80px;
+            text-align: center;
+            background: var(--black);
+            color: var(--cream);
+        }
+        .page-header .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: var(--orange);
+            margin-bottom: 15px;
+        }
+        .page-header h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--stone);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* SECTIONS */
+        section { padding: 80px 40px; }
+        .section-charcoal { background: var(--charcoal); color: var(--cream); }
+        .section-black { background: var(--black); color: var(--cream); }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* STORY */
+        .story-section {
+            padding: 100px 40px;
+        }
+        .story-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .story-content h2 {
+            font-family: 'Anton', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--orange);
+        }
+        .story-content p {
+            font-size: 1.15rem;
+            color: var(--stone);
+            margin-bottom: 25px;
+            line-height: 1.9;
+        }
+        .story-content p strong {
+            color: var(--cream);
+        }
+
+        /* 313 MEANING */
+        .meaning-section {
+            padding: 100px 40px;
+            text-align: center;
+        }
+        .meaning-section h2 {
+            font-family: 'Anton', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .meaning-intro {
+            font-size: 1.15rem;
+            color: var(--stone);
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+        .meaning-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .meaning-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        .meaning-number {
+            font-family: 'Anton', sans-serif;
+            font-size: 4rem;
+            color: var(--orange);
+            margin-bottom: 15px;
+        }
+        .meaning-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .meaning-card p {
+            font-size: 0.95rem;
+            color: var(--stone);
+        }
+
+        /* FOUNDER */
+        .founder-section {
+            padding: 100px 40px;
+        }
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .founder-image {
+            background: var(--charcoal);
+            border-radius: 12px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .founder-image span {
+            font-family: 'Anton', sans-serif;
+            font-size: 6rem;
+            color: var(--orange);
+            opacity: 0.3;
+        }
+        .founder-content h2 {
+            font-family: 'Anton', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--cream);
+        }
+        .founder-content p {
+            font-size: 1.05rem;
+            color: var(--stone);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        .founder-content p strong {
+            color: var(--cream);
+        }
+
+        /* STATS */
+        .stats-section {
+            padding: 80px 40px;
+            background: var(--orange);
+        }
+        .stats-grid {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            flex-wrap: wrap;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-value {
+            font-family: 'Anton', sans-serif;
+            font-size: 4rem;
+            color: var(--black);
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(0,0,0,0.7);
+            margin-top: 8px;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: var(--cream);
+            text-align: center;
+            padding: 100px 40px;
+        }
+        .cta-section h2 {
+            font-family: 'Anton', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .cta-section p {
+            font-size: 1.1rem;
+            color: var(--stone);
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+        .btn-primary {
+            display: inline-block;
+            background: var(--orange);
+            color: var(--black);
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 16px 36px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-primary:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--black);
+            padding: 60px 40px;
+            text-align: center;
+        }
+        .footer-logo .logo-313 {
+            font-family: 'Anton', sans-serif;
+            font-size: 2.5rem;
+            color: var(--cream);
+            -webkit-text-stroke: 2px var(--orange);
+            paint-order: stroke fill;
+            filter: drop-shadow(1px 1px 0 rgba(0,0,0,0.3));
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 25px 0;
+        }
+        .footer-links a {
+            font-size: 0.9rem;
+            color: var(--stone);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--orange); }
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--stone);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .meaning-grid, .founder-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .page-header h1 { font-size: 2.5rem; }
+            nav { padding: 15px 20px; }
+            .nav-links a:not(.nav-cta) { display: none; }
+            section { padding: 50px 20px; }
+            .stats-grid { gap: 40px; }
+            .stat-value { font-size: 3rem; }
+            .founder-image { height: 250px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <span class="logo-313">313</span>
+            <span class="logo-text">MEDIA CO</span>
+        </a>
+        <div class="nav-links">
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="nav-cta">Let's Talk</a>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <header class="page-header">
+        <div class="section-label">WHO WE ARE</div>
+        <h1>BUILT IN DETROIT</h1>
+        <p>A city that knows how to build things that last.</p>
+    </header>
+
+    <!-- STORY -->
+    <section class="story-section section-black">
+        <div class="story-content">
+            <h2>THE STORY</h2>
+            <p><strong>We started 313 Media Co because we saw too many businesses wasting time on content that doesn't convert.</strong></p>
+            <p>Podcasts shouldn't be a vanity project. They shouldn't be about downloads or subscribers or any metric that doesn't pay the bills.</p>
+            <p>A podcast should open doors. It should build relationships with people who could become clients, partners, or referral sources. It should generate content that compounds over time. It should be a <strong>business asset</strong>, not a content burden.</p>
+            <p>We bring the same grit and work ethic Detroit is known for to everything we do. Strategy first. Outcomes always.</p>
+        </div>
+    </section>
+
+    <!-- 313 MEANING -->
+    <section class="meaning-section">
+        <h2>WHY 313?</h2>
+        <p class="meaning-intro">It's the Detroit area code. But it means more than that.</p>
+        <div class="meaning-grid">
+            <div class="meaning-card">
+                <div class="meaning-number">3</div>
+                <h3>Three Outcomes</h3>
+                <p>Every podcast should deliver three things: Sales, Exposure, and Relationships.</p>
+            </div>
+            <div class="meaning-card">
+                <div class="meaning-number">1</div>
+                <h3>One System</h3>
+                <p>One strategic system that ties content creation to business development.</p>
+            </div>
+            <div class="meaning-card">
+                <div class="meaning-number">3</div>
+                <h3>Three Months</h3>
+                <p>The minimum commitment to see real results. Podcasts aren't quick wins.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOUNDER -->
+    <section class="founder-section section-charcoal">
+        <div class="founder-grid">
+            <div class="founder-image">
+                <span>DE</span>
+            </div>
+            <div class="founder-content">
+                <h2>DILLON ENGLAND</h2>
+                <p><strong>Founder of 313 Media Co and host of The Dillon England Show</strong>, which has generated over 1.5 million organic YouTube views with guests ranging from entrepreneurs to celebrities like Danica Patrick.</p>
+                <p>Before podcasting, Dillon spent 6+ years in 100% commission sales — training teams, running a district, and learning how conversations turn into clients.</p>
+                <p>That background shapes everything we do: <strong>podcasts built for real business outcomes, not just content for content's sake.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-value">1.5M+</div>
+                <div class="stat-label">Organic YouTube Views</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">100+</div>
+                <div class="stat-label">Episodes Produced</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">6+</div>
+                <div class="stat-label">Years in Commission Sales</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>READY TO WORK TOGETHER?</h2>
+        <p>Let's figure out if a podcast makes sense for your business — and if so, what it should look like.</p>
+        <a href="contact.html" class="btn-primary">Start the Conversation</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">
+            <span class="logo-313">313</span>
+        </div>
+        <div class="footer-links">
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-copy">© 2025 313 Media Co. All rights reserved.</div>
+    </footer>
+
+</body>
+</html>

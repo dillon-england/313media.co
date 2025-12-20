@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>313 Media Co — Podcast Strategy & Production</title>
+    <meta name="description" content="313 Media Co helps B2B companies turn podcasts into pipeline. Strategy, production, and guest-to-client systems built in Detroit.">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #f5f0e6;
+            --black: #0a0a0a;
+            --charcoal: #1a1a1a;
+            --orange: #f97316;
+            --stone: #8a8279;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Barlow', sans-serif;
+            background: var(--cream);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: var(--cream);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .nav-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-decoration: none;
+            line-height: 1;
+        }
+
+        .nav-logo .logo-313 {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.8rem;
+            color: var(--cream);
+            -webkit-text-stroke: 2px var(--orange);
+            paint-order: stroke fill;
+            filter: drop-shadow(1px 1px 0 rgba(0,0,0,0.2));
+        }
+
+        .nav-logo .logo-text {
+            font-family: 'Barlow', sans-serif;
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            color: var(--black);
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--black);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+        .nav-cta {
+            background: var(--orange);
+            color: var(--black) !important;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 700 !important;
+        }
+
+        .nav-cta:hover {
+            background: #ea580c;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 40px 80px;
+        }
+
+        .hero-logo {
+            margin-bottom: 40px;
+        }
+
+        .hero-logo .logo-313 {
+            font-family: 'Anton', sans-serif;
+            font-size: 10rem;
+            color: var(--cream);
+            -webkit-text-stroke: 5px var(--orange);
+            paint-order: stroke fill;
+            filter: drop-shadow(3px 3px 0 rgba(0,0,0,0.25));
+            line-height: 0.85;
+        }
+
+        .hero-logo .logo-text {
+            font-family: 'Barlow', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.35em;
+            color: var(--black);
+            margin-top: 8px;
+        }
+
+        .hero h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: 3rem;
+            max-width: 700px;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--stone);
+            max-width: 550px;
+            margin-bottom: 40px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--orange);
+            color: var(--black);
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 16px 36px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background: var(--black);
+            color: var(--cream);
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 16px 36px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--charcoal);
+            transform: translateY(-2px);
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 100px 40px;
+        }
+
+        .section-black {
+            background: var(--black);
+            color: var(--cream);
+        }
+
+        .section-charcoal {
+            background: var(--charcoal);
+            color: var(--cream);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: var(--orange);
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: 'Anton', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: var(--stone);
+        }
+
+        /* ===== OPPORTUNITY ===== */
+        .opportunity-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .opportunity-card {
+            background: var(--charcoal);
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .opportunity-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .opportunity-icon {
+            font-family: 'Anton', sans-serif;
+            font-size: 3rem;
+            color: var(--orange);
+            margin-bottom: 20px;
+        }
+
+        .opportunity-card h3 {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--cream);
+        }
+
+        .opportunity-card p {
+            font-size: 0.95rem;
+            color: var(--stone);
+            line-height: 1.7;
+        }
+
+        /* ===== SERVICES ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-card.featured {
+            grid-column: 1 / -1;
+            background: var(--charcoal);
+            color: var(--cream);
+        }
+
+        .service-card h3 {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .service-card.featured h3 {
+            color: var(--orange);
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--stone);
+            line-height: 1.7;
+        }
+
+        .service-card.featured p {
+            color: var(--stone);
+        }
+
+        .service-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            background: var(--orange);
+            color: var(--black);
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        /* ===== ABOUT TEASER ===== */
+        .about-teaser {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-content h2 {
+            font-family: 'Anton', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            font-size: 1.05rem;
+            color: var(--stone);
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .about-content a {
+            color: var(--orange);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .about-content a:hover {
+            text-decoration: underline;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .stat-card {
+            background: var(--charcoal);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Anton', sans-serif;
+            font-size: 2.5rem;
+            color: var(--orange);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--stone);
+            letter-spacing: 0.05em;
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            background: var(--orange);
+            text-align: center;
+            padding: 100px 40px;
+        }
+
+        .cta-section .section-title {
+            color: var(--black);
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            color: rgba(0,0,0,0.7);
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--black);
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            margin-bottom: 25px;
+        }
+
+        .footer-logo .logo-313 {
+            font-family: 'Anton', sans-serif;
+            font-size: 2.5rem;
+            color: var(--cream);
+            -webkit-text-stroke: 2px var(--orange);
+            paint-order: stroke fill;
+            filter: drop-shadow(1px 1px 0 rgba(0,0,0,0.3));
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: var(--stone);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--orange);
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--stone);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .opportunity-grid, .services-grid, .about-teaser, .about-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-logo .logo-313 {
+                font-size: 6rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav {
+                padding: 15px 20px;
+            }
+
+            .nav-links a:not(.nav-cta) {
+                display: none;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .about-teaser {
+                gap: 40px;
+            }
+
+            .service-card.featured {
+                grid-column: auto;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .hero-logo .logo-313 {
+                font-size: 4.5rem;
+                -webkit-text-stroke: 3px var(--orange);
+            }
+
+            .hero-logo .logo-text {
+                font-size: 0.8rem;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <span class="logo-313">313</span>
+            <span class="logo-text">MEDIA CO</span>
+        </a>
+        <div class="nav-links">
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="nav-cta">Let's Talk</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-logo">
+            <div class="logo-313">313</div>
+            <div class="logo-text">MEDIA CO</div>
+        </div>
+        <h1>TURN YOUR PODCAST INTO PIPELINE</h1>
+        <p>We help B2B companies build podcasts that generate relationships, referrals, and revenue — not just content.</p>
+        <a href="contact.html" class="btn-primary">Start the Conversation</a>
+    </section>
+
+    <!-- OPPORTUNITY -->
+    <section class="section-black">
+        <div class="section-header">
+            <div class="section-label">THE OPPORTUNITY</div>
+            <h2 class="section-title">A PODCAST SOLVES THREE PROBLEMS AT ONCE</h2>
+            <p class="section-desc">Done right, it's not just content. It's a system.</p>
+        </div>
+        <div class="opportunity-grid">
+            <div class="opportunity-card">
+                <div class="opportunity-icon">$</div>
+                <h3>SALES</h3>
+                <p>Your ideal clients won't take a cold call. But they'll say yes to being a guest on your podcast. One conversation builds more trust than months of follow-up emails.</p>
+            </div>
+            <div class="opportunity-card">
+                <div class="opportunity-icon">◎</div>
+                <h3>EXPOSURE</h3>
+                <p>One hour of recording becomes a full episode, short-form clips, blog content, LinkedIn posts, and newsletter material. Your podcast feeds every other channel.</p>
+            </div>
+            <div class="opportunity-card">
+                <div class="opportunity-icon">∞</div>
+                <h3>RELATIONSHIPS</h3>
+                <p>Every episode is a reason to connect with someone valuable — potential clients, partners, referral sources. You're not asking for anything. You're offering them a platform.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES OVERVIEW -->
+    <section id="services">
+        <div class="section-header">
+            <div class="section-label">WHAT WE DO</div>
+            <h2 class="section-title">SERVICES</h2>
+            <p class="section-desc">Strategy and production that actually moves your business forward.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>THE INTENSIVE</h3>
+                <p>A deep-dive strategy session. We build your entire podcast system — positioning, guest strategy, content plan, and follow-up process. Walk away ready to launch.</p>
+            </div>
+            <div class="service-card">
+                <h3>THE PARTNERSHIP</h3>
+                <p>Full-service production and strategy. We handle everything so you can focus on showing up and having great conversations. Limited to 4 clients.</p>
+            </div>
+            <div class="service-card">
+                <h3>THE SYSTEM</h3>
+                <p>Production support with strategic guidance. Recording, editing, publishing, plus monthly strategy calls and guest-to-lead tracking.</p>
+            </div>
+            <div class="service-card">
+                <h3>CONTENT ENGINE</h3>
+                <p>We take your episodes and turn them into clips, posts, newsletters, and more. One conversation, dozens of content pieces.</p>
+            </div>
+            <div class="service-card featured">
+                <span class="service-tag">NEW</span>
+                <h3>CONTENT OVERLOAD</h3>
+                <p>1 conversation = 1 quarter's content. We record a single in-depth interview and transform it into 60+ pieces of content with a complete publishing calendar. Show up once, stay visible for months.</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="services.html" class="btn-primary">View All Services</a>
+        </div>
+    </section>
+
+    <!-- ABOUT TEASER -->
+    <section class="section-charcoal">
+        <div class="about-teaser">
+            <div class="about-content">
+                <h2>BUILT IN DETROIT</h2>
+                <p>313 is more than an area code. It's where we come from — a city that knows how to build things that last.</p>
+                <p>We started 313 Media Co because we saw too many businesses wasting time on content that doesn't convert. Podcasts shouldn't be a vanity project. They should open doors.</p>
+                <a href="about.html">Learn more about us →</a>
+            </div>
+            <div class="about-stats">
+                <div class="stat-card">
+                    <div class="stat-value">1.5M+</div>
+                    <div class="stat-label">YouTube Views</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">100+</div>
+                    <div class="stat-label">Episodes Produced</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">6+</div>
+                    <div class="stat-label">Years in Sales</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">B2B</div>
+                    <div class="stat-label">Focused Strategy</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="contact">
+        <div class="section-header">
+            <h2 class="section-title">READY TO BUILD?</h2>
+            <p>Let's talk about how a podcast can move your business forward.</p>
+        </div>
+        <a href="contact.html" class="btn-secondary">Get In Touch</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">
+            <span class="logo-313">313</span>
+        </div>
+        <div class="footer-links">
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-copy">© 2025 313 Media Co. All rights reserved.</div>
+    </footer>
+
+</body>
+</html>

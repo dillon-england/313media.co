@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services — 313 Media Co</title>
+    <meta name="description" content="Podcast strategy and production services for B2B companies. From launch to ongoing support, we build podcasts that generate pipeline.">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --cream: #f5f0e6;
+            --black: #0a0a0a;
+            --charcoal: #1a1a1a;
+            --orange: #f97316;
+            --stone: #8a8279;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Barlow', sans-serif;
+            background: var(--cream);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: var(--cream);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .nav-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-decoration: none;
+            line-height: 1;
+        }
+        .nav-logo .logo-313 {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.8rem;
+            color: var(--cream);
+            -webkit-text-stroke: 2px var(--orange);
+            paint-order: stroke fill;
+            filter: drop-shadow(1px 1px 0 rgba(0,0,0,0.2));
+        }
+        .nav-logo .logo-text {
+            font-family: 'Barlow', sans-serif;
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            color: var(--black);
+            margin-top: 2px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--black);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--orange); }
+        .nav-cta {
+            background: var(--orange);
+            color: var(--black) !important;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 700 !important;
+        }
+        .nav-cta:hover { background: #ea580c; }
+
+        /* PAGE HEADER */
+        .page-header {
+            padding: 160px 40px 80px;
+            text-align: center;
+            background: var(--black);
+            color: var(--cream);
+        }
+        .page-header .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: var(--orange);
+            margin-bottom: 15px;
+        }
+        .page-header h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--stone);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* SECTIONS */
+        section { padding: 80px 40px; }
+        .section-charcoal { background: var(--charcoal); color: var(--cream); }
+        .section-black { background: var(--black); color: var(--cream); }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* SERVICE BLOCKS */
+        .service-block {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            align-items: start;
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .service-block:last-child { border-bottom: none; }
+
+        .service-block.reverse { direction: rtl; }
+        .service-block.reverse > * { direction: ltr; }
+
+        .service-meta h2 {
+            font-family: 'Anton', sans-serif;
+            font-size: 2rem;
+            color: var(--orange);
+            margin-bottom: 10px;
+        }
+        .service-meta .best-for {
+            font-size: 0.85rem;
+            color: var(--stone);
+            font-style: italic;
+        }
+        .service-meta .tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            background: var(--orange);
+            color: var(--black);
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        .service-content p {
+            font-size: 1rem;
+            color: var(--stone);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        .service-content p:first-of-type {
+            color: var(--cream);
+            font-size: 1.1rem;
+        }
+
+        .includes-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+        .includes-list li {
+            font-size: 0.9rem;
+            color: var(--stone);
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+        .includes-list li::before {
+            content: '+';
+            position: absolute;
+            left: 0;
+            color: var(--orange);
+            font-weight: 700;
+        }
+        .includes-list li:last-child { border-bottom: none; }
+
+        /* CONTENT OVERLOAD FEATURE */
+        .feature-section {
+            background: linear-gradient(135deg, var(--orange) 0%, #ea580c 100%);
+            color: var(--black);
+            padding: 100px 40px;
+        }
+        .feature-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .feature-content .tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            background: var(--black);
+            color: var(--cream);
+            padding: 6px 14px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .feature-content h2 {
+            font-family: 'Anton', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .feature-content > p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+        .feature-card {
+            background: rgba(255,255,255,0.95);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .feature-card h3 {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--stone);
+            line-height: 1.6;
+        }
+        .btn-dark {
+            display: inline-block;
+            background: var(--black);
+            color: var(--cream);
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 16px 36px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-dark:hover {
+            background: var(--charcoal);
+            transform: translateY(-2px);
+        }
+
+        /* CTA */
+        .cta-section {
+            background: var(--cream);
+            text-align: center;
+            padding: 100px 40px;
+        }
+        .cta-section h2 {
+            font-family: 'Anton', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .cta-section p {
+            font-size: 1.1rem;
+            color: var(--stone);
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+        .btn-primary {
+            display: inline-block;
+            background: var(--orange);
+            color: var(--black);
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 16px 36px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-primary:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--black);
+            padding: 60px 40px;
+            text-align: center;
+        }
+        .footer-logo .logo-313 {
+            font-family: 'Anton', sans-serif;
+            font-size: 2.5rem;
+            color: var(--cream);
+            -webkit-text-stroke: 2px var(--orange);
+            paint-order: stroke fill;
+            filter: drop-shadow(1px 1px 0 rgba(0,0,0,0.3));
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 25px 0;
+        }
+        .footer-links a {
+            font-size: 0.9rem;
+            color: var(--stone);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--orange); }
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--stone);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .service-block, .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .service-block.reverse { direction: ltr; }
+            .page-header h1 { font-size: 2.5rem; }
+            nav { padding: 15px 20px; }
+            .nav-links a:not(.nav-cta) { display: none; }
+            section { padding: 50px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <span class="logo-313">313</span>
+            <span class="logo-text">MEDIA CO</span>
+        </a>
+        <div class="nav-links">
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="nav-cta">Let's Talk</a>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <header class="page-header">
+        <div class="section-label">WHAT WE DO</div>
+        <h1>SERVICES</h1>
+        <p>Strategy and production that actually moves your business forward. We work with both new and existing podcasts.</p>
+    </header>
+
+    <!-- SERVICES -->
+    <section class="section-black">
+        <div class="container">
+
+            <!-- The Intensive -->
+            <div class="service-block">
+                <div class="service-meta">
+                    <h2>THE INTENSIVE</h2>
+                    <p class="best-for">Best for companies ready to launch fast.</p>
+                </div>
+                <div class="service-content">
+                    <p>Dillon flies to your location for up to 3 days and builds your complete podcast system — strategy, studio build management, infrastructure, CRM tracking, and your first episodes recorded with live coaching.</p>
+                    <p>By the time we leave, you'll have a fully built system, your first episodes recorded, your team trained, and everything you need to keep going.</p>
+                    <ul class="includes-list">
+                        <li>Complete podcast strategy built with your leadership team</li>
+                        <li>Ideal guest profile + first 50 dream guest list</li>
+                        <li>Guest outreach system, scripts, and CRM setup</li>
+                        <li>YouTube channel strategy and optimization</li>
+                        <li>First 2-4 episodes recorded with live coaching</li>
+                        <li>Team trained on production and sales conversion</li>
+                        <li>30 days post-intensive support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- The Partnership -->
+            <div class="service-block reverse">
+                <div class="service-meta">
+                    <span class="tag">LIMITED TO 4 CLIENTS</span>
+                    <h2>THE PARTNERSHIP</h2>
+                    <p class="best-for">Best for companies that want high-touch strategy and direct access.</p>
+                </div>
+                <div class="service-content">
+                    <p>Dillon is embedded in your sales and content process — weekly calls, same-day access, and personally reviewing every guest target.</p>
+                    <p>By month 6, you'll have a mature show with consistent deal flow from guests, a library of content working for you, and a system that runs without you thinking about it.</p>
+                    <ul class="includes-list">
+                        <li>Weekly 1:1 strategy call with Dillon</li>
+                        <li>Same-day Voxer/Slack access</li>
+                        <li>Full done-for-you guest research, outreach, and booking</li>
+                        <li>Guest-to-lead tracking in our proprietary system</li>
+                        <li>Full video + audio post-production</li>
+                        <li>Short-form clips for social media</li>
+                        <li>YouTube optimization and posting</li>
+                        <li>Monthly ROI reporting</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- The System -->
+            <div class="service-block">
+                <div class="service-meta">
+                    <h2>THE SYSTEM</h2>
+                    <p class="best-for">Best for companies that want done-for-you infrastructure with pipeline tracking.</p>
+                </div>
+                <div class="service-content">
+                    <p>We handle the strategy, coaching, post-production, and track which guests become opportunities.</p>
+                    <p>By month 3, you'll see exactly which guests turned into conversations, referrals, and revenue — and have a repeatable system to keep it going.</p>
+                    <ul class="includes-list">
+                        <li>Monthly strategy call</li>
+                        <li>Private Slack channel with our team</li>
+                        <li>Guest strategy + outreach templates</li>
+                        <li>Guest-to-lead tracking</li>
+                        <li>Full video + audio post-production</li>
+                        <li>Short-form clips for social media</li>
+                        <li>YouTube optimization</li>
+                        <li>Quarterly ROI reporting</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Content Engine -->
+            <div class="service-block reverse">
+                <div class="service-meta">
+                    <h2>CONTENT ENGINE</h2>
+                    <p class="best-for">Best for companies focused on content and authority.</p>
+                </div>
+                <div class="service-content">
+                    <p>You handle guest relationships, we handle everything else. Recording, editing, publishing, and distribution.</p>
+                    <p>By month 3, you'll have a consistent content engine running — episodes live, clips flowing to social, and your authority building in your space.</p>
+                    <ul class="includes-list">
+                        <li>Monthly content strategy call</li>
+                        <li>Full video + audio post-production</li>
+                        <li>YouTube optimization</li>
+                        <li>Short-form clips for social media</li>
+                        <li>Show notes</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTENT OVERLOAD FEATURE -->
+    <section class="feature-section">
+        <div class="feature-content">
+            <span class="tag">NOT JUST FOR PODCASTERS</span>
+            <h2>CONTENT OVERLOAD</h2>
+            <p>1 conversation = 1 quarter's content. Show up for one hour, then disappear while we build your entire content ecosystem.</p>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>TIME</h3>
+                    <p>Content creation steals hours every week. With Content Overload, you show up once and we handle everything else.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>EXPOSURE</h3>
+                    <p>One interview transforms into 60+ pieces — videos, graphics, written posts, and platform copy across all channels.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>CONSISTENCY</h3>
+                    <p>A done-for-you content engine with a clear publishing plan. Your brand stays visible even when you're busy.</p>
+                </div>
+            </div>
+            <a href="content-overload.html" class="btn-dark">Learn More About Content Overload</a>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>NOT SURE WHICH SERVICE FITS?</h2>
+        <p>Let's talk. We'll figure out what makes sense for your business and goals.</p>
+        <a href="contact.html" class="btn-primary">Start the Conversation</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">
+            <span class="logo-313">313</span>
+        </div>
+        <div class="footer-links">
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-copy">© 2025 313 Media Co. All rights reserved.</div>
+    </footer>
+
+</body>
+</html>

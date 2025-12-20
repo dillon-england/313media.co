@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — 313 Media Co</title>
+    <meta name="description" content="Let's talk about how a podcast can move your business forward. Schedule a call with 313 Media Co.">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --cream: #f5f0e6;
+            --black: #0a0a0a;
+            --charcoal: #1a1a1a;
+            --orange: #f97316;
+            --stone: #8a8279;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Barlow', sans-serif;
+            background: var(--black);
+            color: var(--cream);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: var(--black);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .nav-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-decoration: none;
+            line-height: 1;
+        }
+        .nav-logo .logo-313 {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.8rem;
+            color: var(--cream);
+            -webkit-text-stroke: 2px var(--orange);
+            paint-order: stroke fill;
+            filter: drop-shadow(1px 1px 0 rgba(0,0,0,0.2));
+        }
+        .nav-logo .logo-text {
+            font-family: 'Barlow', sans-serif;
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            color: var(--cream);
+            margin-top: 2px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--cream);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--orange); }
+        .nav-cta {
+            background: var(--orange);
+            color: var(--black) !important;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 700 !important;
+        }
+        .nav-cta:hover { background: #ea580c; }
+
+        /* CONTACT CONTENT */
+        .contact-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 40px 80px;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            max-width: 1000px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .contact-info h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            line-height: 1.05;
+        }
+
+        .contact-info > p {
+            font-size: 1.15rem;
+            color: var(--stone);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .contact-details {
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--charcoal);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .contact-item-text {
+            font-size: 1rem;
+        }
+
+        .contact-item-text span {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--stone);
+            margin-bottom: 2px;
+        }
+
+        .contact-item-text a {
+            color: var(--cream);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-item-text a:hover {
+            color: var(--orange);
+        }
+
+        /* CALENDLY EMBED AREA */
+        .contact-calendar {
+            background: var(--charcoal);
+            border-radius: 16px;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .contact-calendar h2 {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--orange);
+        }
+
+        .contact-calendar p {
+            font-size: 1rem;
+            color: var(--stone);
+            margin-bottom: 30px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--orange);
+            color: var(--black);
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 18px 40px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
+        }
+
+        .calendar-note {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: var(--stone);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--black);
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--stone);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .contact-info h1 { font-size: 2.5rem; }
+            nav { padding: 15px 20px; }
+            .nav-links a:not(.nav-cta) { display: none; }
+            .contact-page { padding: 100px 20px 60px; }
+            .contact-calendar { padding: 35px 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <span class="logo-313">313</span>
+            <span class="logo-text">MEDIA CO</span>
+        </a>
+        <div class="nav-links">
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="nav-cta">Let's Talk</a>
+        </div>
+    </nav>
+
+    <!-- CONTACT CONTENT -->
+    <section class="contact-page">
+        <div class="contact-container">
+
+            <div class="contact-info">
+                <h1>LET'S BUILD<br>SOMETHING.</h1>
+                <p>Most companies we work with come to us because they're tired of cold outreach that gets ignored, ads that don't convert, and content that disappears into the algorithm.</p>
+                <p>A podcast solves all of these — if you do it right. Let's figure out if it makes sense for your business.</p>
+
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">✉</div>
+                        <div class="contact-item-text">
+                            <span>Email</span>
+                            <a href="mailto:dillon@313mediaco.com">dillon@313mediaco.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-item-text">
+                            <span>Location</span>
+                            Detroit, Michigan
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-calendar">
+                <h2>BOOK A CALL</h2>
+                <p>30 minutes. No pitch, no pressure — just a conversation about what's possible.</p>
+                <a href="https://calendly.com/dillon-goldpromedia/30min" target="_blank" class="btn-primary">Schedule Your Call</a>
+                <p class="calendar-note">We'll respond within 24 hours.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-copy">© 2025 313 Media Co. All rights reserved.</div>
+    </footer>
+
+</body>
+</html>

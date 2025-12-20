@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Podcasting for ROI — 313 Media Co</title>
+  <meta name="description" content="Most business podcasts never generate a single lead. Yours will be the exception. Podcast strategy that drives real business results.">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --cream: #f5f0e6;
+      --black: #0a0a0a;
+      --charcoal: #1a1a1a;
+      --orange: #f97316;
+      --orange-dark: #ea580c;
+      --stone: #8a8279;
+    }
+    body { 
+      font-family: 'Barlow', sans-serif; 
+      background: var(--black); 
+      color: var(--cream); 
+      line-height: 1.6; 
+    }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+    /* LOGO */
+    .logo { 
+      text-align: center; 
+      padding: 40px 0 20px; 
+    }
+    .logo-313 {
+      font-family: 'Anton', sans-serif;
+      font-size: 2rem;
+      color: var(--cream);
+      -webkit-text-stroke: 2px var(--orange);
+      paint-order: stroke fill;
+      filter: drop-shadow(1px 1px 0 rgba(0,0,0,0.2));
+    }
+    .logo-text {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      color: var(--cream);
+      margin-top: 4px;
+    }
+    
+    /* HERO */
+    .hero { text-align: center; padding: 60px 0; }
+    .hero h1 { 
+      font-family: 'Anton', sans-serif;
+      font-size: 42px; 
+      font-weight: 400; 
+      line-height: 1.2; 
+    }
+    .hero .subtext { font-size: 18px; color: var(--stone); margin: 25px 0; }
+    .hero .promise { 
+      font-family: 'Anton', sans-serif;
+      font-size: 32px; 
+      margin-top: 30px; 
+    }
+    .hero .promise .highlight { 
+      color: var(--orange);
+      font-size: 38px; 
+    }
+    
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(249, 115, 22, 0.2); }
+      50% { box-shadow: 0 0 40px rgba(249, 115, 22, 0.4); }
+    }
+    
+    @keyframes buttonShine {
+      0%, 100% { left: -100%; }
+      50%, 60% { left: 100%; }
+    }
+    
+    .cta-button {
+      display: inline-block; 
+      background: var(--orange);
+      color: var(--black); 
+      font-size: 16px; 
+      font-weight: 700; 
+      text-decoration: none;
+      padding: 18px 40px; 
+      border-radius: 6px; 
+      margin-top: 35px;
+      position: relative;
+      overflow: hidden;
+      animation: glow 3s ease-in-out infinite;
+      transition: all 0.2s;
+    }
+    
+    .cta-button::before {
+      content: ''; 
+      position: absolute; 
+      top: 0; 
+      left: -100%; 
+      width: 100%; 
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      animation: buttonShine 4s ease-in-out infinite;
+    }
+
+    .cta-button:hover {
+      background: var(--orange-dark);
+      transform: translateY(-2px);
+    }
+    
+    .scroll-indicator { margin-top: 40px; text-align: center; }
+    .scroll-indicator span { display: block; font-size: 13px; color: var(--stone); margin-bottom: 8px; }
+    .scroll-arrow { font-size: 20px; color: var(--orange); }
+    
+    /* SECTIONS */
+    section { padding: 70px 0; }
+    .section-label { 
+      font-size: 12px; 
+      font-weight: 700; 
+      letter-spacing: 2px; 
+      color: var(--orange); 
+      text-align: center; 
+      margin-bottom: 15px; 
+    }
+    .section-title { 
+      font-family: 'Anton', sans-serif;
+      font-size: 32px; 
+      text-align: center; 
+      margin-bottom: 40px; 
+    }
+    .section-title .highlight { color: var(--orange); }
+    
+    /* REASONS */
+    .reasons { display: grid; gap: 25px; }
+    .reason { 
+      display: flex; 
+      gap: 20px; 
+      padding: 25px; 
+      background: rgba(255,255,255,0.02); 
+      border: 1px solid rgba(255,255,255,0.05); 
+      border-radius: 10px; 
+      transition: all 0.3s;
+    }
+    .reason:hover {
+      border-color: rgba(249, 115, 22, 0.3);
+      transform: translateX(5px);
+    }
+    .reason-number { 
+      font-family: 'Anton', sans-serif;
+      font-size: 24px; 
+      color: var(--orange); 
+    }
+    .reason h3 { 
+      font-family: 'Anton', sans-serif;
+      font-size: 20px; 
+      margin-bottom: 8px; 
+    }
+    .reason p { color: var(--stone); font-size: 15px; line-height: 1.7; }
+    
+    /* COMPARISON */
+    .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+    .comparison-col { padding: 30px; border-radius: 12px; }
+    .comparison-col.without { background: rgba(255,255,255,0.02); }
+    .comparison-col.with { 
+      background: rgba(249, 115, 22, 0.08); 
+      border: 1px solid rgba(249, 115, 22, 0.2); 
+    }
+    .comparison-col h3 { 
+      font-size: 13px; 
+      font-weight: 700; 
+      letter-spacing: 1px; 
+      margin-bottom: 20px; 
+      padding-bottom: 12px; 
+      border-bottom: 1px solid rgba(255,255,255,0.1); 
+    }
+    .comparison-col.without h3 { color: var(--stone); }
+    .comparison-col.with h3 { color: var(--orange); }
+    .comparison-item { display: flex; gap: 10px; margin-bottom: 14px; font-size: 14px; }
+    .comparison-col.without .comparison-item { color: #666; }
+    .comparison-col.with .comparison-item { color: var(--cream); }
+    .x-mark { color: #555; }
+    .check-mark { color: var(--orange); }
+    
+    /* CREDIBILITY */
+    .credibility { text-align: center; }
+    .credibility-text { 
+      max-width: 600px; 
+      margin: 0 auto 35px; 
+      font-size: 17px; 
+      color: var(--stone); 
+      line-height: 1.8; 
+    }
+    .credibility-text .highlight { 
+      display: block; 
+      margin-top: 15px; 
+      font-weight: 600; 
+      color: var(--orange);
+    }
+    
+    .stats { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; }
+    .stat { text-align: center; padding: 15px; }
+    .stat-value { 
+      font-family: 'Anton', sans-serif;
+      font-size: 48px; 
+      color: var(--orange); 
+    }
+    .stat-label { font-size: 13px; color: var(--stone); margin-top: 5px; }
+    
+    /* FINAL CTA */
+    .final-cta { text-align: center; padding: 80px 0; }
+    .final-cta .subtext { font-size: 17px; color: var(--stone); max-width: 480px; margin: 0 auto 35px; }
+    .final-cta .small { font-size: 14px; color: var(--stone); margin-top: 18px; }
+    
+    .orange-line { width: 50px; height: 3px; background: var(--orange); margin: 0 auto 25px; }
+    
+    /* FOOTER */
+    footer { text-align: center; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.05); }
+    footer .logo-313 { font-size: 1.5rem; }
+    footer a { color: var(--stone); text-decoration: none; font-size: 14px; }
+    footer a:hover { color: var(--orange); }
+    
+    /* RESPONSIVE */
+    @media (max-width: 700px) { 
+      .comparison { grid-template-columns: 1fr; } 
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 40px 0; }
+      .hero h1 { font-size: 28px; }
+      .hero .subtext { font-size: 16px; margin: 20px 0; }
+      .hero .promise { font-size: 24px; margin-top: 25px; }
+      .hero .promise .highlight { font-size: 28px; }
+      
+      .cta-button { padding: 16px 32px; font-size: 14px; width: 100%; text-align: center; }
+      
+      section { padding: 50px 0; }
+      .section-title { font-size: 24px; margin-bottom: 30px; }
+      
+      .reason { flex-direction: column; gap: 10px; padding: 20px; }
+      .reason-number { font-size: 20px; }
+      .reason h3 { font-size: 18px; }
+      .reason p { font-size: 14px; }
+      
+      .comparison-col { padding: 20px; }
+      .comparison-item { font-size: 13px; }
+      
+      .stats { gap: 30px; }
+      .stat-value { font-size: 36px; }
+      .stat-label { font-size: 12px; }
+      
+      .credibility-text { font-size: 15px; }
+      
+      .final-cta { padding: 60px 0; }
+      .final-cta .subtext { font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo">
+    <div class="logo-313">313</div>
+    <div class="logo-text">MEDIA CO</div>
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Most business podcasts<br>never generate a single lead.</h1>
+      <p class="subtext">In fact, 90% don't make it past episode three.</p>
+      <div class="promise">But yours will be<br><span class="highlight">the exception.</span></div>
+      <a href="https://calendly.com/dillon-goldpromedia/30min" class="cta-button">BOOK YOUR FREE STRATEGY CALL</a>
+      <div class="scroll-indicator"><span>See how we do it</span><div class="scroll-arrow">↓</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-label">HERE'S WHY</div>
+      <h2 class="section-title">We build podcasts that <span class="highlight">drive business</span></h2>
+      <div class="reasons">
+        <div class="reason">
+          <span class="reason-number">01.</span>
+          <div>
+            <h3>Strategy-First Approach</h3>
+            <p>We don't just hit record. Every episode is built around your business goals, target audience, and conversion strategy.</p>
+          </div>
+        </div>
+        <div class="reason">
+          <span class="reason-number">02.</span>
+          <div>
+            <h3>Trackable ROI</h3>
+            <p>No more guessing if it's working. We set up systems to track leads, conversions, and real business impact from day one.</p>
+          </div>
+        </div>
+        <div class="reason">
+          <span class="reason-number">03.</span>
+          <div>
+            <h3>Full Production Support</h3>
+            <p>From launch strategy to ongoing editing, distribution, and growth — we handle everything so you can focus on showing up.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-label">THE DIFFERENCE</div>
+      <h2 class="section-title">Strategy changes <span class="highlight">everything</span></h2>
+      <div class="comparison">
+        <div class="comparison-col without">
+          <h3>WITHOUT A STRATEGY</h3>
+          <div class="comparison-item"><span class="x-mark">✕</span> Launch with excitement, fade by episode 3</div>
+          <div class="comparison-item"><span class="x-mark">✕</span> Waste months figuring out tech and logistics</div>
+          <div class="comparison-item"><span class="x-mark">✕</span> Create content nobody finds or shares</div>
+          <div class="comparison-item"><span class="x-mark">✕</span> No strategy, no leads, no point</div>
+        </div>
+        <div class="comparison-col with">
+          <h3>WITH 313 MEDIA CO</h3>
+          <div class="comparison-item"><span class="check-mark">+</span> Launch with a plan built for long-term success</div>
+          <div class="comparison-item"><span class="check-mark">+</span> Skip the learning curve — we handle the setup</div>
+          <div class="comparison-item"><span class="check-mark">+</span> Strategic content that reaches your ideal clients</div>
+          <div class="comparison-item"><span class="check-mark">+</span> Trackable ROI you can actually measure</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="credibility">
+    <div class="container">
+      <div class="section-label">WHY US</div>
+      <h2 class="section-title">We've done it ourselves</h2>
+      <p class="credibility-text">We didn't learn podcasting from a course — we learned it by building a successful show from scratch. We know what works, what doesn't, and how to create a podcast that delivers real business results.<span class="highlight">And we'll track the ROI so you know it's working.</span></p>
+      <div class="stats">
+        <div class="stat"><div class="stat-value">1.5M+</div><div class="stat-label">YouTube Views</div></div>
+        <div class="stat"><div class="stat-value">Real</div><div class="stat-label">ROI Tracking</div></div>
+        <div class="stat"><div class="stat-value">B2B</div><div class="stat-label">Focused Strategy</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container">
+      <div class="orange-line"></div>
+      <h2 class="section-title">Ready to be <span class="highlight">the exception?</span></h2>
+      <p class="subtext">Let's talk about your goals and see if we're the right fit. No pressure, no pitch — just a conversation about what's possible.</p>
+      <a href="https://calendly.com/dillon-goldpromedia/30min" class="cta-button">BOOK YOUR FREE STRATEGY CALL</a>
+      <p class="small">30 minutes. Zero obligation.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="logo-313">313</div>
+    <br><br>
+    <a href="index.html">313mediaco.com</a>
+  </footer>
+
+</body>
+</html>
