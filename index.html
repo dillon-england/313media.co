@@ -509,15 +509,36 @@
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             nav {
-                padding: 16px 24px;
+                padding: 14px 20px;
                 flex-wrap: wrap;
             }
 
+            .logo-num {
+                font-size: 20px;
+            }
+
+            .logo-text {
+                font-size: 9px;
+            }
+
             .nav-menu {
-                gap: 20px;
+                gap: 16px;
                 order: 2;
                 width: 100%;
-                margin-top: 16px;
+                margin-top: 14px;
+                flex-wrap: wrap;
+            }
+
+            .nav-menu a {
+                font-size: 13px;
+            }
+
+            .nav-cta {
+                padding: 10px 24px;
+                font-size: 12px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
             }
 
             .logo {
@@ -525,25 +546,34 @@
             }
 
             .hero {
-                padding: 80px 24px;
-                margin-top: 140px;
+                padding: 60px 20px 80px 20px;
+                margin-top: 120px;
             }
 
             .hero h1 {
-                font-size: 36px;
+                font-size: 32px;
+                line-height: 1.2;
+                margin-bottom: 20px;
             }
 
             .hero p {
-                font-size: 16px;
+                font-size: 15px;
+                margin-bottom: 28px;
             }
 
             .hero-ctas {
                 flex-direction: column;
+                gap: 12px;
             }
 
             .btn {
                 width: 100%;
                 text-align: center;
+                padding: 14px 28px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             .pillars-grid,
@@ -551,21 +581,76 @@
             .stats-grid,
             .footer-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 24px;
             }
 
             .steps-grid {
                 grid-template-columns: 1fr;
+                gap: 24px;
             }
 
             section {
-                padding: 80px 24px;
+                padding: 60px 20px;
             }
 
             .section-header h2,
             .approach-section h2,
             .cta-section h2 {
-                font-size: 32px;
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+
+            .accordion-header h3 {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 12px 16px;
+            }
+
+            .nav-menu {
+                gap: 12px;
+                margin-top: 12px;
+            }
+
+            .nav-menu a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 40px 16px 60px 16px;
+                margin-top: 100px;
+            }
+
+            .hero h1 {
+                font-size: 26px;
+                margin-bottom: 16px;
+            }
+
+            .hero p {
+                font-size: 14px;
+                margin-bottom: 24px;
+            }
+
+            section {
+                padding: 40px 16px;
+            }
+
+            .section-header h2,
+            .approach-section h2,
+            .cta-section h2 {
+                font-size: 24px;
+            }
+
+            .btn {
+                padding: 12px 20px;
+                font-size: 13px;
+            }
+
+            .footer-grid {
+                gap: 20px;
             }
         }
 

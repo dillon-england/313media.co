@@ -532,15 +532,36 @@
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             nav {
-                padding: 16px 24px;
+                padding: 14px 20px;
                 flex-wrap: wrap;
             }
 
+            .logo-num {
+                font-size: 20px;
+            }
+
+            .logo-text {
+                font-size: 9px;
+            }
+
             .nav-menu {
-                gap: 20px;
+                gap: 16px;
                 order: 2;
                 width: 100%;
-                margin-top: 16px;
+                margin-top: 14px;
+                flex-wrap: wrap;
+            }
+
+            .nav-menu a {
+                font-size: 13px;
+            }
+
+            .nav-cta {
+                padding: 10px 24px;
+                font-size: 12px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
             }
 
             .logo {
@@ -548,25 +569,113 @@
             }
 
             .page-header {
-                padding: 60px 24px;
-                margin-top: 140px;
+                padding: 50px 20px;
+                margin-top: 120px;
             }
 
             .page-header h1 {
-                font-size: 36px;
+                font-size: 28px;
+                margin-bottom: 16px;
+            }
+
+            .page-header p {
+                font-size: 15px;
             }
 
             section {
-                padding: 60px 24px;
+                padding: 50px 20px;
+            }
+
+            section h2 {
+                font-size: 26px;
+                margin-bottom: 40px;
             }
 
             .accordion-header h3 {
-                font-size: 18px;
+                font-size: 16px;
+            }
+
+            .accordion-body ul {
+                padding-left: 20px;
+            }
+
+            .accordion-body li {
+                font-size: 15px;
+                margin-bottom: 10px;
+            }
+
+            .accordion-body h4 {
+                font-size: 16px;
+                margin-top: 20px;
+                margin-bottom: 12px;
+            }
+
+            .accordion-body p {
+                font-size: 15px;
+            }
+
+            .cta-button {
+                padding: 12px 24px;
+                font-size: 13px;
+                min-height: 44px;
+                display: inline-flex;
+                align-items: center;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 24px;
+            }
+
+            .cta-section {
+                text-align: center;
+            }
+
+            .cta-section h2 {
+                font-size: 24px;
+            }
+
+            .cta-section p {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 12px 16px;
+            }
+
+            .nav-menu {
+                gap: 12px;
+                margin-top: 12px;
+            }
+
+            .page-header {
+                padding: 40px 16px;
+                margin-top: 100px;
+            }
+
+            .page-header h1 {
+                font-size: 24px;
+            }
+
+            section {
+                padding: 40px 16px;
+            }
+
+            section h2 {
+                font-size: 22px;
+            }
+
+            .accordion-header h3 {
+                font-size: 15px;
+            }
+
+            .cta-button {
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding: 14px 20px;
             }
         }
     </style>
