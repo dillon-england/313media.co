@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>313 Media Co — Podcast Strategy for B2B</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F5F0E8;
+            --cream-light: #FAF8F4;
+            --cream-dark: #E8E0D4;
+            
+            --orange: #f97316;
+            --orange-dark: #ea580c;
+            
+            --graphite: #2A2A2A;
+            --graphite-light: #404040;
+            --graphite-dark: #1A1A1A;
+            
+            --navy: #1E3A5F;
+            --navy-light: #2D4F7A;
+            --navy-dark: #152A45;
+            
+            --slate: #4A5568;
+            --slate-light: #718096;
+            --slate-muted: #A0AEC0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--graphite);
+            line-height: 1.6;
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(245, 240, 232, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 24px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(42, 42, 42, 0.08);
+        }
+
+        .logo {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .logo-num {
+            font-family: 'Oswald', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--orange);
+            letter-spacing: -1px;
+        }
+
+        .logo-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--graphite);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--graphite);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translateY(10px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translateY(-10px);
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--graphite);
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--orange);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--orange);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--navy);
+            color: var(--cream) !important;
+            padding: 12px 28px;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--orange);
+            color: var(--graphite) !important;
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            margin-top: 100px;
+            padding: 120px 60px;
+            background: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(30, 58, 95, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 76px;
+            line-height: 1.1;
+            color: var(--graphite);
+            margin-bottom: 24px;
+            letter-spacing: -0.3px;
+            font-weight: 700;
+            opacity: 0;
+            animation: heroFadeInScale 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s forwards;
+        }
+
+        .hero h1 .highlight {
+            color: var(--orange);
+            display: inline-block;
+            animation: highlightPulse 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s forwards;
+            opacity: 0;
+        }
+
+        @keyframes highlightPulse {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--slate);
+            line-height: 1.7;
+            max-width: 600px;
+            margin-bottom: 36px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 20px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.3s forwards;
+        }
+
+        .btn {
+            padding: 16px 36px;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--navy);
+            color: var(--cream);
+        }
+
+        .btn-primary:hover {
+            background: var(--orange);
+            color: var(--graphite);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--graphite);
+            border: 2px solid var(--graphite);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--orange);
+            color: var(--orange);
+            background: rgba(249, 115, 22, 0.02);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes heroFadeInScale {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== PILLARS SECTION ===== */
+        .pillars-section {
+            padding: 120px 60px;
+            background: var(--cream);
+        }
+
+        .section-header {
+            max-width: 900px;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 42px;
+            color: var(--graphite);
+            margin-bottom: 16px;
+            letter-spacing: -0.2px;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--slate);
+            max-width: 700px;
+            line-height: 1.7;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+            max-width: 1200px;
+        }
+
+        .pillar {
+            background: var(--cream);
+            padding: 0;
+            border-top: 3px solid var(--orange);
+        }
+
+        .pillar h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 28px;
+            color: var(--graphite);
+            margin-bottom: 16px;
+            letter-spacing: -0.2px;
+        }
+
+        .pillar p {
+            font-size: 16px;
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        /* ===== APPROACH SECTION ===== */
+        .approach-section {
+            padding: 120px 60px;
+            background: var(--navy);
+            color: var(--cream);
+        }
+
+        .approach-section h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 42px;
+            color: var(--cream);
+            margin-bottom: 16px;
+            letter-spacing: -0.2px;
+            font-weight: 700;
+        }
+
+        .approach-section > p {
+            font-size: 18px;
+            color: rgba(245, 240, 232, 0.8);
+            max-width: 700px;
+            line-height: 1.7;
+            margin-bottom: 80px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            max-width: 1200px;
+        }
+
+        .step {
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(245, 240, 232, 0.15);
+        }
+
+        .step:last-child {
+            border-bottom: none;
+        }
+
+        .step-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 48px;
+            color: var(--orange);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .step h4 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .step p {
+            font-size: 16px;
+            color: rgba(245, 240, 232, 0.8);
+            line-height: 1.7;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services-section {
+            padding: 120px 60px;
+            background: var(--cream);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            max-width: 1200px;
+        }
+
+        .service-item {
+            padding-bottom: 0;
+        }
+
+        .service-item h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            color: var(--graphite);
+            margin-bottom: 12px;
+            letter-spacing: -0.2px;
+            font-weight: 700;
+        }
+
+        .service-item p {
+            font-size: 16px;
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: 120px 60px;
+            background: var(--cream);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 42px;
+            color: var(--graphite);
+            margin-bottom: 24px;
+            letter-spacing: -0.2px;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: var(--slate);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--graphite-dark);
+            color: var(--cream);
+            padding: 80px 60px;
+            border-top: 1px solid rgba(249, 115, 22, 0.15);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin-bottom: 80px;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 24px;
+            color: var(--orange);
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+
+        .footer-tagline {
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: rgba(245, 240, 232, 0.6);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        .footer-bio {
+            font-size: 14px;
+            color: rgba(245, 240, 232, 0.7);
+            line-height: 1.7;
+        }
+
+        .footer-col h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            font-weight: 700;
+            color: var(--cream);
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 14px;
+            color: rgba(245, 240, 232, 0.7);
+            text-decoration: none;
+            margin-bottom: 16px;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--orange);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(249, 115, 22, 0.1);
+            padding-top: 40px;
+            text-align: center;
+            font-size: 13px;
+            color: rgba(245, 240, 232, 0.5);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            nav {
+                padding: 12px 16px;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .logo {
+                flex: 1;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                background: var(--cream);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                border-bottom: 1px solid var(--cream-dark);
+            }
+
+            .nav-menu.active {
+                max-height: 300px;
+            }
+
+            .nav-menu a {
+                padding: 16px 24px;
+                font-size: 14px;
+                border-bottom: 1px solid var(--cream-dark);
+                display: block;
+            }
+
+            .nav-cta {
+                margin: 12px;
+                width: calc(100% - 24px);
+            }
+
+            .logo-num {
+                font-size: 18px;
+            }
+
+            .logo-text {
+                font-size: 8px;
+            }
+
+            .hero {
+                padding: 60px 20px 80px 20px;
+                margin-top: 100px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+                line-height: 1.2;
+                letter-spacing: 0px;
+                margin-bottom: 20px;
+            }
+
+            .hero p {
+                font-size: 15px;
+                margin-bottom: 28px;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+                padding: 14px 28px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .pillars-grid,
+            .services-grid,
+            .stats-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .section-header h2,
+            .approach-section h2,
+            .cta-section h2 {
+                font-size: 26px;
+                letter-spacing: -0.2px;
+                margin-bottom: 20px;
+            }
+
+            .pillar h3,
+            .service-item h4 {
+                font-size: 20px;
+                letter-spacing: -0.2px;
+            }
+
+            .accordion-header h3 {
+                font-size: 16px;
+                letter-spacing: -0.2px;
+            }
+
+            .step-number {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 12px 16px;
+            }
+
+            .nav-menu {
+                gap: 12px;
+                margin-top: 12px;
+            }
+
+            .nav-menu a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 40px 16px 60px 16px;
+                margin-top: 100px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+                margin-bottom: 16px;
+            }
+
+            .hero p {
+                font-size: 14px;
+                margin-bottom: 24px;
+            }
+
+            section {
+                padding: 40px 16px;
+            }
+
+            .section-header h2,
+            .approach-section h2,
+            .cta-section h2 {
+                font-size: 24px;
+            }
+
+            .btn {
+                padding: 12px 20px;
+                font-size: 13px;
+            }
+
+            .footer-grid {
+                gap: 20px;
+            }
+        }
+
+        /* ===== ACCORDION ===== */
+        .accordion-item {
+            border-bottom: 1px solid var(--cream-dark);
+            margin-bottom: 0;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .accordion-item:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .accordion-item:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .accordion-item:nth-child(4) {
+            animation-delay: 0.5s;
+        }
+
+        .accordion-item:nth-child(5) {
+            animation-delay: 0.6s;
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-item:hover .accordion-header {
+            padding-left: 16px;
+        }
+
+        .accordion-header {
+            padding: 32px 0;
+            padding-left: 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .accordion-header::before {
+            content: '';
+            position: absolute;
+            left: -16px;
+            width: 4px;
+            height: 100%;
+            background: var(--orange);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .accordion-item:hover .accordion-header::before {
+            opacity: 1;
+        }
+
+        .accordion-header:hover {
+            color: var(--orange);
+        }
+
+        .accordion-header h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            color: var(--graphite);
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            transition: color 0.3s;
+        }
+
+        .accordion-header:hover h3 {
+            color: var(--orange);
+        }
+
+        .accordion-toggle {
+            font-size: 28px;
+            color: var(--orange);
+            transition: transform 0.3s ease;
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+        }
+
+        .accordion-item.active .accordion-toggle {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 1000px;
+        }
+
+        .accordion-body {
+            padding-bottom: 32px;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .accordion-body p {
+            font-size: 16px;
+            color: var(--slate);
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .accordion-body p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="#home" class="logo">
+            <span class="logo-num">313</span>
+            <span class="logo-text">MEDIA CO</span>
+        </a>
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-menu" id="navMenu">
+            <a href="#why">Why Podcasting</a>
+            <a href="/313-services.html">Podcast Strategy & Solutions</a>
+            <a href="/313-content-overload.html">Content Overload</a>
+            <a href="/313-about.html">About</a>
+            <a href="/313-why-different.html">Why Us</a>
+            <a href="#contact" class="nav-cta">Let's Talk</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>What if your podcast <span class="highlight">actually generated leads?</span></h1>
+            <p>A podcast isn't just a content machine. It's a relationship engine. We help B2B companies (Metro Detroit-based and remote) turn conversations into connections that drive real business outcomes.</p>
+            <div class="hero-ctas">
+                <a href="#contact" class="btn btn-primary">Schedule a Call</a>
+                <a href="#why" class="btn btn-secondary">See How It Works</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROOF SECTION -->
+    <section style="padding: 60px 60px; background: var(--cream); text-align: center; border-top: 1px solid var(--cream-dark);">
+        <p style="font-size: 14px; color: var(--slate); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 40px; font-weight: 600;">Proven by The Dillon England Show</p>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px; max-width: 900px; margin: 0 auto;">
+            <div>
+                <div style="font-family: 'Oswald', sans-serif; font-size: 48px; color: var(--orange); font-weight: 700; margin-bottom: 8px;">1.5M+</div>
+                <p style="font-size: 14px; color: var(--slate); font-weight: 500;">Organic YouTube Views</p>
+            </div>
+            <div>
+                <div style="font-family: 'Oswald', sans-serif; font-size: 48px; color: var(--orange); font-weight: 700; margin-bottom: 8px;">4 & 13</div>
+                <p style="font-size: 14px; color: var(--slate); font-weight: 500;">New Clients & Referrals (in 2 Months)</p>
+            </div>
+        </div>
+        <p style="font-size: 13px; color: var(--slate-muted); margin-top: 40px;">Using the exact system we build for our clients.</p>
+    </section>
+    <section class="pillars-section" id="why">
+        <div class="section-header">
+            <h2>Three Things a Podcast Gives You</h2>
+            <p>Whether you're starting from scratch or fixing a broken system, a well-executed podcast creates three tangible business outcomes.</p>
+        </div>
+
+        <div class="pillars-grid reveal">
+            <div class="pillar reveal">
+                <h3>Sales</h3>
+                <p>Turn podcast guests into qualified conversations. Build relationships without cold outreach. Your guests are your ideal prospects.</p>
+            </div>
+            <div class="pillar reveal">
+                <h3>Exposure</h3>
+                <p>One episode becomes 10-20 assets. Your YouTube channel compounds—old episodes keep ranking and generating views. Own your narrative. Build authority where your prospects are already searching.</p>
+            </div>
+            <div class="pillar reveal">
+                <h3>Relationships</h3>
+                <p>Consistent, meaningful touchpoints with decision makers. Stay top of mind. The podcast is a legitimate reason to stay connected.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- APPROACH -->
+    <section class="approach-section" id="approach">
+        <div class="section-header">
+            <h2 style="color: var(--cream);">How We Work</h2>
+            <p style="color: rgba(245, 240, 232, 0.8);">A clear, strategic process designed to move your business forward.</p>
+        </div>
+
+        <div class="steps-grid">
+            <div class="step reveal">
+                <div class="step-number">1</div>
+                <h4>Strategy & Discovery</h4>
+                <p>We dig into your business, market, and goals. We identify who your ideal guests are and how to position the podcast for maximum impact.</p>
+            </div>
+            <div class="step reveal">
+                <div class="step-number">2</div>
+                <h4>Launch & Production</h4>
+                <p>We handle everything. Guest recruitment, interview direction, video & audio production, editing, and distribution across all platforms.</p>
+            </div>
+            <div class="step reveal">
+                <div class="step-number">3</div>
+                <h4>Content Amplification</h4>
+                <p>Your episode becomes short-form clips, LinkedIn posts, blog content, and more. We maximize the value of every conversation.</p>
+            </div>
+            <div class="step reveal">
+                <div class="step-number">4</div>
+                <h4>Growth & ROI Tracking</h4>
+                <p>We measure what matters. Track which guests turn into opportunities. Scale what's working. Optimize continuously.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services-section">
+        <div class="section-header">
+            <h2>What We Handle</h2>
+            <p>You focus on running your business. We handle everything else.</p>
+        </div>
+
+        <div class="services-grid reveal">
+            <div class="service-item reveal">
+                <h4>Strategy & Guest Recruitment</h4>
+                <p>We identify the right guests who are also your ideal prospects. Build relationships at scale.</p>
+            </div>
+            <div class="service-item reveal">
+                <h4>Full Production</h4>
+                <p>Video, audio, editing, graphics. Pre-production planning through post-production polish. You show up. We handle the rest.</p>
+            </div>
+            <div class="service-item reveal">
+                <h4>Distribution & Amplification</h4>
+                <p>One episode becomes clips, posts, LinkedIn articles, and more. We repurpose your content across all platforms to fuel your marketing engine.</p>
+            </div>
+            <div class="service-item reveal">
+                <h4>ROI Tracking</h4>
+                <p>Measure what matters. Track which guests turn into opportunities. Know your return. Scale what works.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="contact">
+        <h2>Ready to turn your podcast into a business tool?</h2>
+        <p>Let's talk about what's possible for your company. Book a free 30-minute strategy call with Dillon.</p>
+        <a href="https://calendly.com/dillon-313" target="_blank" class="btn btn-primary">Schedule Your Call</a>
+    </section>
+
+    <!-- FAQ -->
+    <section style="padding: 120px 60px; background: var(--cream);">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <h2 style="font-family: 'Oswald', sans-serif; font-size: 42px; color: var(--graphite); margin-bottom: 24px; letter-spacing: -0.2px; font-weight: 700;">Common Questions</h2>
+            <p style="font-size: 18px; color: var(--slate); margin-bottom: 80px; line-height: 1.7;">We get these questions a lot. Here's what we tell people.</p>
+
+            <!-- FAQ Item 1 -->
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h3>If podcasting works this well, why doesn't everyone do it?</h3>
+                    <span class="accordion-toggle">+</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <p>Most people focus on the wrong metrics. They nail the visibility part—they get views, downloads, exposure. Great. But then they don't have a strategy to convert those viewers into actual relationships and revenue. They quit before momentum builds because they're not tracking what matters. A podcast without a conversion strategy is just expensive content creation.</p>
+                        <p>A podcast IS powerful. It builds authority, reach, and credibility. But only if you combine it with a real strategy for turning listeners into clients. Most agencies stop at the visibility piece. We keep going.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h3>Even if I'm convinced, how do I actually execute this?</h3>
+                    <span class="accordion-toggle">+</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <p>That's where we come in. You might know a podcast is powerful, but the execution is overwhelming. We handle guest strategy, outreach, recording, editing, distribution, and conversion tracking. You show up for conversations. We handle everything else.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h3>Will this take a ton of my time?</h3>
+                    <span class="accordion-toggle">+</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <p>No. You show up for the conversations. That's it. Everything else—strategy, production, editing, distribution, tracking—we handle. Your job is to be good at talking to people. We handle everything else.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h3>How long before we see results?</h3>
+                    <span class="accordion-toggle">+</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <p>That depends on what "results" means to you. Are you looking for lead generation—guests converting into actual clients and revenue? Or exposure and authority building? Those have different timelines.</p>
+                        <p>Many of our clients see real momentum within 3-6 months. You'll have guests booked, episodes live, content flowing, and the first indicators that the system is working. Lead generation takes a bit longer—relationships compound over time. But by month 6, most clients are seeing meaningful traction from guest-to-lead conversions.</p>
+                        <p>That's why we have minimums. A podcast isn't a quick win. It's a relationship engine. You need time for it to work.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h3>What if we already have a podcast but it's not working?</h3>
+                    <span class="accordion-toggle">+</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <p>That's our specialty. Most broken podcasts lack strategy or tracking. We audit what's happening, rebuild your strategy, and implement the system that actually works. Start with a Podcast Audit and we'll show you what to fix.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>313</h3>
+                <p class="footer-tagline">STRATEGY FIRST. OUTCOMES ALWAYS.</p>
+                <p class="footer-bio">We help B2B companies (Metro Detroit-based and remote) turn podcasts into business development engines. Built by someone with 6+ years of commission sales experience who actually understands how deals get done.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <a href="#why">Why Podcasting</a>
+                <a href="#approach">How It Works</a>
+                <a href="#contact">Get Started</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="https://www.youtube.com/@dillonengland" target="_blank">The Show</a>
+                <a href="#home">Home</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="https://youtube.com" target="_blank">YouTube</a>
+                <a href="https://instagram.com" target="_blank">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 313 Media Co. Detroit, Michigan.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            // Close menu when a link is clicked
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.reveal');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        reveals.forEach(reveal => {
+            observer.observe(reveal);
+        });
+
+        // Smooth nav scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Accordion toggle
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            const allItems = document.querySelectorAll('.accordion-item');
+            
+            allItems.forEach(i => {
+                if (i !== item) {
+                    i.classList.remove('active');
+                }
+            });
+            
+            item.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
