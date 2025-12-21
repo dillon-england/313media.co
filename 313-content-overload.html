@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Overload — 313 Media Co</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F5F0E8;
+            --cream-light: #FAF8F4;
+            --cream-dark: #E8E0D4;
+            
+            --orange: #f97316;
+            --orange-dark: #ea580c;
+            
+            --graphite: #2A2A2A;
+            --graphite-light: #404040;
+            --graphite-dark: #1A1A1A;
+            
+            --navy: #1E3A5F;
+            --navy-light: #2D4F7A;
+            --navy-dark: #152A45;
+            
+            --slate: #4A5568;
+            --slate-light: #718096;
+            --slate-muted: #A0AEC0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--graphite);
+            line-height: 1.6;
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(245, 240, 232, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 24px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(42, 42, 42, 0.08);
+        }
+
+        .logo {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .logo-num {
+            font-family: 'Anton', sans-serif;
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--orange);
+            letter-spacing: -1px;
+        }
+
+        .logo-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--graphite);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--graphite);
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--orange);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--orange);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--navy);
+            color: var(--cream) !important;
+            padding: 12px 28px;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--orange);
+            color: var(--graphite) !important;
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            margin-top: 100px;
+            padding: 100px 60px;
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            right: -200px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .page-header-tagline {
+            font-size: 14px;
+            color: var(--orange);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.05s forwards;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: 56px;
+            color: var(--orange);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+            font-weight: 900;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.1s forwards;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: rgba(245, 240, 232, 0.9);
+            max-width: 700px;
+            line-height: 1.7;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== SECTION ===== */
+        section {
+            padding: 60px 60px 80px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-family: 'Anton', sans-serif;
+            font-size: 42px;
+            color: var(--graphite);
+            margin-bottom: 48px;
+            letter-spacing: -0.5px;
+            font-weight: 900;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.1s forwards;
+            position: relative;
+            padding-bottom: 16px;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--orange);
+        }
+
+        section p {
+            font-size: 16px;
+            color: var(--slate);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== THE PROBLEM SECTION ===== */
+        .problem-section {
+            background: var(--cream-light);
+            border-left: 4px solid var(--orange);
+            margin: 0 -60px;
+            padding: 80px 60px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .problem-section h3 {
+            font-family: 'Anton', sans-serif;
+            font-size: 28px;
+            color: var(--graphite);
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+            font-weight: 900;
+        }
+
+        .problem-section p {
+            font-size: 16px;
+            color: var(--slate);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        /* ===== THREE PILLARS ===== */
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .pillar {
+            background: white;
+            border: 1px solid var(--cream-dark);
+            border-radius: 8px;
+            padding: 40px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            transition: all 0.3s ease;
+        }
+
+        .pillar:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .pillar:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .pillar:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        .pillar:hover {
+            border-color: var(--orange);
+            box-shadow: 0 8px 24px rgba(42, 42, 42, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .pillar h3 {
+            font-family: 'Anton', sans-serif;
+            font-size: 20px;
+            color: var(--graphite);
+            margin-bottom: 16px;
+            font-weight: 900;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .pillar h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--orange);
+        }
+
+        .pillar p {
+            font-size: 15px;
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        /* ===== SERVICE OPTIONS ===== */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            background: white;
+            border: 2px solid var(--orange);
+            border-radius: 8px;
+            padding: 40px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .service-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .service-card:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 12px 32px rgba(249, 115, 22, 0.15);
+            transform: translateY(-6px);
+        }
+
+        .service-card h3 {
+            font-family: 'Anton', sans-serif;
+            font-size: 22px;
+            color: var(--graphite);
+            margin-bottom: 24px;
+            font-weight: 900;
+        }
+
+        .service-card-detail {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .service-card-detail:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .detail-label {
+            font-size: 12px;
+            color: var(--slate);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .detail-value {
+            font-size: 15px;
+            color: var(--graphite);
+            line-height: 1.6;
+        }
+
+        /* ===== CTA BUTTON ===== */
+        .cta-button {
+            display: inline-block;
+            margin-top: 32px;
+            padding: 16px 36px;
+            background: var(--navy);
+            color: var(--cream);
+            text-decoration: none;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+
+        .cta-button:hover {
+            background: var(--orange);
+            color: var(--graphite);
+            transform: translateY(-2px);
+        }
+
+        /* ===== HOW IT WORKS ===== */
+        .process-section {
+            background: var(--navy);
+            color: var(--cream);
+            margin: 0 -60px;
+            padding: 80px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-section::before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            left: -200px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .process-section h2 {
+            color: var(--cream);
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.1s forwards;
+            position: relative;
+            z-index: 2;
+            padding-bottom: 16px;
+        }
+
+        .process-section h2::after {
+            background: var(--orange);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-grid::before {
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--orange), transparent);
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .process-step {
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            position: relative;
+        }
+
+        .process-step:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .process-step:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .process-step:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .process-step:nth-child(4) {
+            animation-delay: 0.5s;
+        }
+
+        .step-number {
+            font-family: 'Anton', sans-serif;
+            font-size: 48px;
+            color: var(--orange);
+            font-weight: 900;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+            background: var(--navy);
+            padding: 0 12px;
+        }
+
+        .step-title {
+            font-family: 'Anton', sans-serif;
+            font-size: 16px;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+        .step-desc {
+            font-size: 14px;
+            color: rgba(245, 240, 232, 0.8);
+            line-height: 1.6;
+        }
+
+        /* ===== RESULT SECTION ===== */
+        .result-section {
+            background: var(--cream-light);
+            text-align: center;
+            padding: 100px 60px;
+            border-top: 1px solid var(--cream-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-section h2 {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.1s forwards;
+            margin-bottom: 60px !important;
+        }
+
+        .result-section > div {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .result-stat {
+            display: block;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .result-stat:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .result-stat:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .result-stat:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .result-number {
+            font-family: 'Anton', sans-serif;
+            font-size: 56px;
+            color: var(--orange);
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .result-label {
+            font-size: 14px;
+            color: var(--slate);
+            font-weight: 500;
+        }
+
+        /* ===== FAQ ===== */
+        .faq-item {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--cream-dark);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            transition: all 0.3s;
+        }
+
+        .faq-item:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .faq-item:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .faq-item:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item h3 {
+            font-family: 'Anton', sans-serif;
+            font-size: 20px;
+            color: var(--graphite);
+            margin-bottom: 16px;
+            font-weight: 900;
+            position: relative;
+            padding-left: 16px;
+            transition: color 0.3s;
+        }
+
+        .faq-item h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--orange);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .faq-item:hover h3 {
+            color: var(--orange);
+        }
+
+        .faq-item:hover h3::before {
+            opacity: 1;
+        }
+
+        .faq-item p {
+            font-size: 15px;
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--graphite-dark);
+            color: var(--cream);
+            padding: 80px 60px;
+            border-top: 1px solid rgba(249, 115, 22, 0.15);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 80px;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Anton', sans-serif;
+            font-size: 24px;
+            color: var(--orange);
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+
+        .footer-tagline {
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: rgba(245, 240, 232, 0.6);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        .footer-bio {
+            font-size: 14px;
+            color: rgba(245, 240, 232, 0.7);
+            line-height: 1.7;
+        }
+
+        .footer-col h4 {
+            font-family: 'Anton', sans-serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            font-weight: 900;
+            color: var(--cream);
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 14px;
+            color: rgba(245, 240, 232, 0.7);
+            text-decoration: none;
+            margin-bottom: 16px;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--orange);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid rgba(249, 115, 22, 0.1);
+            padding-top: 40px;
+            text-align: center;
+            font-size: 13px;
+            color: rgba(245, 240, 232, 0.5);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 24px;
+                flex-wrap: wrap;
+            }
+
+            .nav-menu {
+                gap: 20px;
+                order: 2;
+                width: 100%;
+                margin-top: 16px;
+            }
+
+            .logo {
+                order: 1;
+            }
+
+            .page-header {
+                padding: 60px 24px;
+                margin-top: 140px;
+            }
+
+            .page-header h1 {
+                font-size: 36px;
+            }
+
+            section {
+                padding: 60px 24px;
+            }
+
+            .problem-section {
+                margin: 50px -24px;
+                padding: 60px 24px;
+            }
+
+            .pillars,
+            .service-grid,
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .process-section {
+                margin: 50px -24px;
+                padding: 60px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="/index.html" class="logo">
+            <span class="logo-num">313</span>
+            <span class="logo-text">MEDIA CO</span>
+        </a>
+        <div class="nav-menu">
+            <a href="/index.html">Home</a>
+            <a href="/313-services.html">Podcast Strategy & Solutions</a>
+            <a href="/313-content-overload.html">Content Overload</a>
+            <a href="/313-about.html">About</a>
+            <a href="/313-why-different.html">Why Us</a>
+            <a href="/index.html#contact" class="nav-cta">Let's Talk</a>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <header class="page-header">
+        <p class="page-header-tagline">For founders, thought leaders, and business professionals who know their expertise deserves more visibility—but don't have time to be everywhere.</p>
+        <h1>Content Overload</h1>
+        <p>One hour of conversation. A quarter's worth of content. For founders and thought leaders who know they should be everywhere—but don't have time to be.</p>
+    </header>
+
+    <!-- THE PROBLEM -->
+    <section class="problem-section">
+        <h3>Every Business Has a Time Problem, Not a Content Problem</h3>
+        <p>You have the ideas. The opinions. The stories. The insights your market needs to hear.</p>
+        <p>The problem isn't a lack of content—it's the time to say it, package it, and distribute it everywhere. You're told to "post every day" and "be on every platform." But you're also running a business.</p>
+        <p>Most founders choose: either neglect your visibility or sacrifice your sanity. We give you a third option.</p>
+    </section>
+
+    <!-- THE SOLUTION -->
+    <section>
+        <h2>One Conversation. Infinite Content.</h2>
+        <p>Content Overload transforms a single, strategic 60-minute interview into your complete content engine for 1-3 months.</p>
+
+        <div class="pillars">
+            <div class="pillar">
+                <h3>Time</h3>
+                <p>One hour of your time instead of 5+ hours per week. You show up for one conversation. We deliver a quarter's worth of ready-to-post content across all platforms.</p>
+            </div>
+            <div class="pillar">
+                <h3>Exposure</h3>
+                <p>Your message everywhere. One interview becomes short-form videos, long-form clips, graphics, quote cards, written posts, and copy optimized for YouTube, LinkedIn, Instagram, TikTok, X, and more.</p>
+            </div>
+            <div class="pillar">
+                <h3>Consistency</h3>
+                <p>Stay visible without thinking about it. You get a complete content calendar showing exactly which content goes where and when. No more guessing. No more gaps.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="process-section">
+        <h2>How It Works</h2>
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-title">The Interview</div>
+                <div class="step-desc">60 minutes of strategic, in-depth conversation about your business, philosophy, insights, and unique perspective.</div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-title">The Creation</div>
+                <div class="step-desc">We transform that conversation into 60+ pieces: videos, graphics, posts, copy, audiograms—everything ready to go.</div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-title">The Delivery</div>
+                <div class="step-desc">60+ ready-to-post content pieces. 1-3 month content calendar. Guides for each platform. Everything you need to own your visibility.</div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-title">The Result</div>
+                <div class="step-desc">Your brand shows up everywhere. Consistent. Professional. Without you living on social media.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICE OPTIONS -->
+    <section>
+        <h2>Three Ways to Work</h2>
+        
+        <div class="service-grid">
+            <!-- PREMIUM -->
+            <div class="service-card">
+                <h3>Premium Overload</h3>
+                
+                <div class="service-card-detail">
+                    <div class="detail-label">Format</div>
+                    <div class="detail-value">In-person with full production + photo session</div>
+                </div>
+
+                <div class="service-card-detail">
+                    <div class="detail-label">Includes</div>
+                    <div class="detail-value">60+ content pieces + The Dillon England Show appearance + guest promotion to 1.5M+ audience</div>
+                </div>
+
+                <div class="service-card-detail">
+                    <div class="detail-label">Best For</div>
+                    <div class="detail-value">Going all-in on visibility and premium positioning</div>
+                </div>
+
+                <a href="https://calendly.com/dillon-313" class="cta-button">Let's Talk</a>
+            </div>
+
+            <!-- IN-PERSON -->
+            <div class="service-card">
+                <h3>In-Person Overload</h3>
+                
+                <div class="service-card-detail">
+                    <div class="detail-label">Format</div>
+                    <div class="detail-value">Professional on-site shoot (we come to you)</div>
+                </div>
+
+                <div class="service-card-detail">
+                    <div class="detail-label">Includes</div>
+                    <div class="detail-value">60+ content pieces + professional video/audio quality + content calendar</div>
+                </div>
+
+                <div class="service-card-detail">
+                    <div class="detail-label">Best For</div>
+                    <div class="detail-value">Premium content that stands out in the feed</div>
+                </div>
+
+                <a href="https://calendly.com/dillon-313" class="cta-button">Let's Talk</a>
+            </div>
+
+            <!-- VIRTUAL -->
+            <div class="service-card">
+                <h3>Virtual Overload</h3>
+                
+                <div class="service-card-detail">
+                    <div class="detail-label">Format</div>
+                    <div class="detail-value">Virtual call (flexible scheduling)</div>
+                </div>
+
+                <div class="service-card-detail">
+                    <div class="detail-label">Includes</div>
+                    <div class="detail-value">60+ content pieces + content calendar for 1-3 months</div>
+                </div>
+
+                <div class="service-card-detail">
+                    <div class="detail-label">Best For</div>
+                    <div class="detail-value">Founders who want full content engine without the budget</div>
+                </div>
+
+                <a href="https://calendly.com/dillon-313" class="cta-button">Let's Talk</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="result-section">
+        <h2 style="text-align: center; margin-bottom: 60px;">What This Looks Like</h2>
+        
+        <div>
+            <div class="result-stat">
+                <div class="result-number">60+</div>
+                <div class="result-label">Unique Content Pieces</div>
+            </div>
+            
+            <div class="result-stat">
+                <div class="result-number">8+</div>
+                <div class="result-label">Different Platforms</div>
+            </div>
+            
+            <div class="result-stat">
+                <div class="result-number">3</div>
+                <div class="result-label">Months of Content</div>
+            </div>
+        </div>
+
+        <p style="font-size: 20px; color: var(--graphite); margin-top: 40px; font-weight: 600;">All from 1 hour of your time.</p>
+    </section>
+
+    <!-- FAQ -->
+    <section style="padding: 100px 60px;">
+        <h2>Questions</h2>
+
+        <div class="faq-item">
+            <h3>Who is Content Overload for?</h3>
+            <p>Founders and thought leaders who know their expertise deserves more visibility but don't have time to manage social media. You're not hiring a social team. You're getting a done-for-you content machine.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Do I have to have a podcast?</h3>
+            <p>No. Content Overload works with any conversation—a podcast episode, a recorded interview, or a strategic conversation we record together. It doesn't have to be a show.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What if I already have a podcast?</h3>
+            <p>Even better. We can use your show as the source for Content Overload. One episode becomes 60+ pieces for social, LinkedIn, email, etc. You're leveraging the content you're already creating.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How long does this take to deliver?</h3>
+            <p>The content is typically delivered within 2 weeks of the interview. The content calendar is included so you know exactly when to post everything.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I use this content forever?</h3>
+            <p>Yes. Once delivered, all content is yours to use. You can post it, repurpose it, archive it, share it however you want.</p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="padding: 120px 60px; text-align: center; background: var(--cream);">
+        <h2>Ready to Stop Creating Content and Start Living Your Life?</h2>
+        <p style="font-size: 18px; color: var(--slate); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.7;">Let's talk about which option makes sense for you.</p>
+        <a href="https://calendly.com/dillon-313" class="cta-button">Schedule a Call</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>313</h3>
+                <p class="footer-tagline">STRATEGY FIRST. OUTCOMES ALWAYS.</p>
+                <p class="footer-bio">We help B2B companies (Metro Detroit-based and remote) build visibility and authority. Built by someone with 6+ years of commission sales experience who actually understands business growth.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <a href="/313-services.html">Podcast Strategy & Solutions</a>
+                <a href="/313-content-overload.html">Content Overload</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="/313-about.html">About</a>
+                <a href="https://www.youtube.com/@dillonengland" target="_blank">The Show</a>
+                <a href="/index.html#contact">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="https://youtube.com" target="_blank">YouTube</a>
+                <a href="https://instagram.com" target="_blank">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 313 Media Co. Detroit, Michigan.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast Strategy & Solutions — 313 Media Co</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F5F0E8;
+            --cream-light: #FAF8F4;
+            --cream-dark: #E8E0D4;
+            
+            --orange: #f97316;
+            --orange-dark: #ea580c;
+            
+            --graphite: #2A2A2A;
+            --graphite-light: #404040;
+            --graphite-dark: #1A1A1A;
+            
+            --navy: #1E3A5F;
+            --navy-light: #2D4F7A;
+            --navy-dark: #152A45;
+            
+            --slate: #4A5568;
+            --slate-light: #718096;
+            --slate-muted: #A0AEC0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--graphite);
+            line-height: 1.6;
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(245, 240, 232, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 24px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(42, 42, 42, 0.08);
+        }
+
+        .logo {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .logo-num {
+            font-family: 'Anton', sans-serif;
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--orange);
+            letter-spacing: -1px;
+        }
+
+        .logo-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--graphite);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--graphite);
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--orange);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--orange);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--navy);
+            color: var(--cream) !important;
+            padding: 12px 28px;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--orange);
+            color: var(--graphite) !important;
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            margin-top: 100px;
+            padding: 100px 60px;
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            right: -200px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .page-header h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: 56px;
+            color: var(--orange);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+            font-weight: 900;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.1s forwards;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: rgba(245, 240, 232, 0.9);
+            max-width: 700px;
+            line-height: 1.7;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== SECTION ===== */
+        section {
+            padding: 40px 60px 80px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-family: 'Anton', sans-serif;
+            font-size: 32px;
+            color: var(--graphite);
+            margin-bottom: 48px;
+            letter-spacing: -0.5px;
+            font-weight: 900;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            position: relative;
+            padding-bottom: 16px;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--orange);
+        }
+
+        /* ===== ACCORDION ===== */
+        .accordion-item {
+            border-bottom: 1px solid var(--cream-dark);
+            margin-bottom: 0;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .accordion-item:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .accordion-item:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-item:hover .accordion-header {
+            padding-left: 16px;
+        }
+
+        .accordion-header {
+            padding: 32px 0;
+            padding-left: 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .accordion-header::before {
+            content: '';
+            position: absolute;
+            left: -16px;
+            width: 4px;
+            height: 100%;
+            background: var(--orange);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .accordion-item:hover .accordion-header::before {
+            opacity: 1;
+        }
+
+        .accordion-header:hover {
+            color: var(--orange);
+        }
+
+        .accordion-header h3 {
+            font-family: 'Anton', sans-serif;
+            font-size: 24px;
+            color: var(--graphite);
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            transition: color 0.3s;
+        }
+
+        .accordion-header:hover h3 {
+            color: var(--orange);
+        }
+
+        .accordion-toggle {
+            font-size: 28px;
+            color: var(--orange);
+            transition: transform 0.3s ease;
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+        }
+
+        .accordion-item.active .accordion-toggle {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 1000px;
+        }
+
+        .accordion-body {
+            padding-bottom: 32px;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .accordion-body h4 {
+            font-family: 'Anton', sans-serif;
+            font-size: 18px;
+            color: var(--graphite);
+            margin-bottom: 12px;
+            margin-top: 24px;
+            font-weight: 900;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .accordion-body h4::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 18px;
+            background: var(--orange);
+        }
+
+        .accordion-body h4:first-child {
+            margin-top: 0;
+        }
+
+        .accordion-body p {
+            font-size: 16px;
+            color: var(--slate);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .accordion-body strong {
+            color: var(--graphite);
+            font-weight: 600;
+        }
+
+        .accordion-body ul {
+            list-style: none;
+            margin-bottom: 16px;
+        }
+
+        .accordion-body li {
+            font-size: 16px;
+            color: var(--slate);
+            line-height: 1.7;
+            padding-left: 24px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        .accordion-body li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--orange);
+            font-weight: bold;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 24px;
+            padding: 16px 36px;
+            background: var(--navy);
+            color: var(--cream);
+            text-decoration: none;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: var(--orange);
+            color: var(--graphite);
+            transform: translateY(-2px);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: 80px 60px;
+            background: var(--cream);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            bottom: -200px;
+            left: -200px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(30, 58, 95, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.1s forwards;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: var(--slate);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section .cta-button {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.3s forwards;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--graphite-dark);
+            color: var(--cream);
+            padding: 80px 60px;
+            border-top: 1px solid rgba(249, 115, 22, 0.15);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 80px;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Anton', sans-serif;
+            font-size: 24px;
+            color: var(--orange);
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+
+        .footer-tagline {
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: rgba(245, 240, 232, 0.6);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        .footer-bio {
+            font-size: 14px;
+            color: rgba(245, 240, 232, 0.7);
+            line-height: 1.7;
+        }
+
+        .footer-col h4 {
+            font-family: 'Anton', sans-serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            font-weight: 900;
+            color: var(--cream);
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 14px;
+            color: rgba(245, 240, 232, 0.7);
+            text-decoration: none;
+            margin-bottom: 16px;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--orange);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid rgba(249, 115, 22, 0.1);
+            padding-top: 40px;
+            text-align: center;
+            font-size: 13px;
+            color: rgba(245, 240, 232, 0.5);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 24px;
+                flex-wrap: wrap;
+            }
+
+            .nav-menu {
+                gap: 20px;
+                order: 2;
+                width: 100%;
+                margin-top: 16px;
+            }
+
+            .logo {
+                order: 1;
+            }
+
+            .page-header {
+                padding: 60px 24px;
+                margin-top: 140px;
+            }
+
+            .page-header h1 {
+                font-size: 36px;
+            }
+
+            section {
+                padding: 60px 24px;
+            }
+
+            .accordion-header h3 {
+                font-size: 18px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="/index.html" class="logo">
+            <span class="logo-num">313</span>
+            <span class="logo-text">MEDIA CO</span>
+        </a>
+        <div class="nav-menu">
+            <a href="/index.html">Home</a>
+            <a href="/313-services.html">Podcast Strategy & Solutions</a>
+            <a href="/313-content-overload.html">Content Overload</a>
+            <a href="/313-about.html">About</a>
+            <a href="/313-why-different.html">Why Us</a>
+            <a href="/index.html#contact" class="nav-cta">Let's Talk</a>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <header class="page-header">
+        <h1>Podcast Strategy & Solutions</h1>
+        <p>We work with companies at any stage—whether you're launching your first podcast or fixing a broken system. Here's how we can help.</p>
+    </header>
+
+    <!-- SERVICES ACCORDION -->
+    <section>
+        <h2>Choose Your Path</h2>
+
+        <!-- STARTING FROM SCRATCH -->
+        <div class="accordion-item" id="item-1">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Starting Your First Podcast</h3>
+                <span class="accordion-toggle">+</span>
+            </div>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    <p>You know a podcast could be powerful for your business. You just need someone to build the system and handle the execution so you can focus on showing up and having conversations.</p>
+                    
+                    <h4>What We Do</h4>
+                    <ul>
+                        <li>Build your complete podcast strategy</li>
+                        <li>Identify your ideal guest profile (tied to your sales targets)</li>
+                        <li>Set up all production infrastructure and distribution</li>
+                        <li>Handle guest research, outreach, and booking</li>
+                        <li>Full video and audio production + editing</li>
+                        <li>YouTube optimization, short-form clips, show notes</li>
+                        <li>Track which guests turn into business opportunities</li>
+                    </ul>
+
+                    <h4>The Options</h4>
+                    <p><strong>The Intensive</strong> — Dillon comes on-site for 3 days, builds your complete system, records your first episodes with live coaching, and trains your team. Perfect if you want everything set up right from day one.</p>
+                    
+                    <p><strong>The Partnership</strong> — High-touch ongoing support. Weekly strategy calls with Dillon, same-day access, and done-for-you guest strategy and production. Limited to 4 clients.</p>
+                    
+                    <p><strong>The System</strong> — Done-for-you production with monthly strategy calls. We handle everything; you focus on guests and conversations.</p>
+
+                    <h4>First Step</h4>
+                    <p>Everyone starts with a Podcast Launch Strategy — a 2-4 week engagement where we build your complete blueprint and you'll be ready to record Episode 1. Includes 30 days of support.</p>
+
+                    <a href="https://calendly.com/dillon-313" class="cta-button">Schedule Your Strategy Call</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ALREADY HAVE A PODCAST -->
+        <div class="accordion-item" id="item-2">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Already Have a Podcast</h3>
+                <span class="accordion-toggle">+</span>
+            </div>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    <p>You've launched. You have episodes. Maybe the system needs optimization. Maybe your strategy isn't clear. Or maybe it's not generating the business outcomes you hoped for. We audit what's happening and rebuild your strategy for real results.</p>
+
+                    <h4>What We Do</h4>
+                    <ul>
+                        <li>Audit your current strategy and execution</li>
+                        <li>Identify what's working and what's broken</li>
+                        <li>Rebuild your guest strategy (tied to your sales targets)</li>
+                        <li>Implement tracking systems for guest-to-client conversions</li>
+                        <li>Fix production quality if needed</li>
+                        <li>Set up proper YouTube optimization and distribution</li>
+                        <li>Create follow-up sequences so guests turn into relationships</li>
+                    </ul>
+
+                    <h4>The Options</h4>
+                    <p><strong>The Intensive</strong> — Dillon comes on-site for 3 days. Complete audit, strategy rebuild, production fix, and team training. You walk away with a clear plan and your system rebuilt.</p>
+                    
+                    <p><strong>The Partnership</strong> — Ongoing strategic support. Weekly calls with Dillon, done-for-you execution, and continuous optimization. Best if you need hands-on guidance to turn things around.</p>
+                    
+                    <p><strong>The System</strong> — Full production and strategy support with monthly check-ins. We implement the strategy you need and track results.</p>
+
+                    <h4>First Step</h4>
+                    <p>Start with a Podcast Audit & Optimization. We assess what's working, diagnose the problems, and give you a clear rebuild plan. Then you decide if you want us to execute it with you.</p>
+
+                    <a href="https://calendly.com/dillon-313" class="cta-button">Schedule Your Audit</a>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Not Sure Which Path Is Right?</h2>
+        <p>That's what the strategy call is for. We'll ask questions about your business, your goals, and your constraints—then recommend the right fit.</p>
+        <a href="https://calendly.com/dillon-313" class="cta-button">Book Your Free Strategy Call</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>313</h3>
+                <p class="footer-tagline">STRATEGY FIRST. OUTCOMES ALWAYS.</p>
+                <p class="footer-bio">We help B2B companies (Metro Detroit-based and remote) turn podcasts into business development engines. Built by someone with 6+ years of commission sales experience who actually understands how deals get done.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <a href="#item-1">Starting Fresh</a>
+                <a href="#item-2">Fixing Broken Podcasts</a>
+                <a href="/313-content-overload.html">Content Overload</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="/313-about.html">About</a>
+                <a href="https://www.youtube.com/@dillonengland" target="_blank">The Show</a>
+                <a href="/index.html#contact">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="https://youtube.com" target="_blank">YouTube</a>
+                <a href="https://instagram.com" target="_blank">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 313 Media Co. Detroit, Michigan.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            const allItems = document.querySelectorAll('.accordion-item');
+            
+            // Close all other items
+            allItems.forEach(el => {
+                if (el !== item) {
+                    el.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            item.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
