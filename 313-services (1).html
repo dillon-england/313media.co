@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Why We're Different — 313 Media Co</title>
+    <title>Podcast Strategy & Solutions — 313 Media Co</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -235,20 +235,20 @@
 
         /* ===== SECTION ===== */
         section {
-            padding: 80px 60px;
+            padding: 40px 60px 80px 60px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         section h2 {
             font-family: 'Oswald', sans-serif;
-            font-size: 42px;
+            font-size: 32px;
             color: var(--graphite);
             margin-bottom: 48px;
             letter-spacing: -0.2px;
             font-weight: 700;
             opacity: 0;
-            animation: fadeInUp 0.8s ease-out 0.1s forwards;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
             position: relative;
             padding-bottom: 16px;
         }
@@ -263,210 +263,206 @@
             background: var(--orange);
         }
 
-        /* ===== DIFFERENTIATORS GRID ===== */
-        .diff-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 60px;
-            margin-top: 80px;
-        }
-
-        .diff-card {
-            background: white;
-            border: 1px solid var(--cream-dark);
-            border-radius: 8px;
-            padding: 48px;
-            display: flex;
-            flex-shrink: 0;
-            margin-left: 16px;
-            flex-direction: column;
+        /* ===== ACCORDION ===== */
+        .accordion-item {
+            border-bottom: 1px solid var(--cream-dark);
+            margin-bottom: 0;
             opacity: 0;
             animation: fadeInUp 0.8s ease-out forwards;
             transition: all 0.3s ease;
         }
 
-        .diff-card:nth-child(1) {
-            animation-delay: 0.2s;
-        }
-
-        .diff-card:nth-child(2) {
+        .accordion-item:nth-child(1) {
             animation-delay: 0.3s;
         }
 
-        .diff-card:nth-child(3) {
+        .accordion-item:nth-child(2) {
             animation-delay: 0.4s;
         }
 
-        .diff-card:nth-child(4) {
+        .accordion-item:nth-child(3) {
             animation-delay: 0.5s;
         }
 
-        .diff-card:hover {
-            border-color: var(--orange);
-            box-shadow: 0 8px 24px rgba(42, 42, 42, 0.08);
-            transform: translateY(-4px);
+        .accordion-item:last-child {
+            border-bottom: none;
         }
 
-        .diff-card h3 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 24px;
-            color: var(--graphite);
-            margin-bottom: 20px;
-            letter-spacing: -0.2px;
-            font-weight: 700;
+        .accordion-item:hover .accordion-header {
+            padding-left: 16px;
+        }
+
+        .accordion-header {
+            padding: 32px 0;
+            padding-left: 0;
+            cursor: pointer;
+            display: flex;
+            flex-shrink: 0;
+            margin-left: 16px;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: all 0.3s;
             position: relative;
-            padding-bottom: 12px;
         }
 
-        .diff-card h3::after {
+        .accordion-header::before {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 3px;
+            left: -16px;
+            width: 4px;
+            height: 100%;
             background: var(--orange);
-        }
-
-        .diff-card p {
-            font-size: 16px;
-            color: var(--slate);
-            line-height: 1.8;
-            margin-bottom: 16px;
-        }
-
-        /* ===== COMPARISON SECTION ===== */
-        .comparison-section {
-            background: var(--navy);
-            color: var(--cream);
-            width: 100%;
-            margin: 100px 0;
-            padding: 100px 60px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .comparison-section::before {
-            content: '';
-            position: absolute;
-            top: -150px;
-            left: -200px;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(249, 115, 22, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .comparison-section h2 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 42px;
-            color: var(--cream);
-            margin-bottom: 60px;
-            letter-spacing: -0.2px;
-            font-weight: 700;
-            text-align: center;
             opacity: 0;
-            animation: fadeInUp 0.8s ease-out 0.1s forwards;
-            position: relative;
-            z-index: 2;
-            padding-bottom: 16px;
+            transition: opacity 0.3s;
         }
 
-        .comparison-section h2::after {
-            background: var(--orange);
-            left: 50%;
-            transform: translateX(-50%);
+        .accordion-item:hover .accordion-header::before {
+            opacity: 1;
         }
 
-        .comparison-table {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .comparison-col {
-            padding: 40px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 8px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-            transition: all 0.3s ease;
-        }
-
-        .comparison-col:nth-child(1) {
-            animation-delay: 0.2s;
-        }
-
-        .comparison-col:nth-child(2) {
-            animation-delay: 0.3s;
-        }
-
-        .comparison-col:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-
-        .comparison-col.your-way {
-            border: 2px solid rgba(255,255,255,0.1);
-        }
-
-        .comparison-col.our-way {
-            border: 2px solid var(--orange);
-            background: rgba(249, 115, 22, 0.12);
-        }
-
-        .comparison-col.our-way:hover {
-            box-shadow: 0 12px 32px rgba(249, 115, 22, 0.2);
-        }
-
-        .comparison-col h3 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 20px;
-            margin-bottom: 32px;
-            font-weight: 700;
-        }
-
-        .comparison-col.your-way h3 {
-            color: rgba(245, 240, 232, 0.8);
-        }
-
-        .comparison-col.our-way h3 {
+        .accordion-header:hover {
             color: var(--orange);
         }
 
-        .comparison-item {
-            margin-bottom: 24px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+        .accordion-header h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 24px;
+            color: var(--graphite);
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            transition: color 0.3s;
         }
 
-        .comparison-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
+        .accordion-header:hover h3 {
+            color: var(--orange);
         }
 
-        .comparison-label {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: rgba(245, 240, 232, 0.5);
+        .accordion-toggle {
+            font-size: 28px;
+            color: var(--orange);
+            transition: transform 0.3s ease;
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+        }
+
+        .accordion-item.active .accordion-toggle {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 1000px;
+        }
+
+        .accordion-body {
+            padding-bottom: 32px;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .accordion-body h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 18px;
+            color: var(--graphite);
+            margin-bottom: 12px;
+            margin-top: 24px;
+            font-weight: 700;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .accordion-body h4::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 18px;
+            background: var(--orange);
+        }
+
+        .accordion-body h4:first-child {
+            margin-top: 0;
+        }
+
+        .accordion-body p {
+            font-size: 16px;
+            color: var(--slate);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .accordion-body strong {
+            color: var(--graphite);
             font-weight: 600;
+        }
+
+        .accordion-body ul {
+            list-style: none;
+            margin-bottom: 16px;
+        }
+
+        .accordion-body li {
+            font-size: 16px;
+            color: var(--slate);
+            line-height: 1.7;
+            padding-left: 24px;
+            position: relative;
             margin-bottom: 8px;
         }
 
-        .comparison-value {
-            font-size: 15px;
-            line-height: 1.6;
+        .accordion-body li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--orange);
+            font-weight: bold;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 24px;
+            padding: 16px 36px;
+            background: var(--navy);
+            color: var(--cream);
+            text-decoration: none;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: var(--orange);
+            color: var(--graphite);
+            transform: translateY(-2px);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* ===== CTA SECTION ===== */
         .cta-section {
-            padding: 120px 60px;
+            padding: 80px 60px;
             background: var(--cream);
             text-align: center;
             position: relative;
@@ -486,12 +482,8 @@
         }
 
         .cta-section h2 {
-            font-family: 'Oswald', sans-serif;
             font-size: 42px;
-            color: var(--graphite);
             margin-bottom: 24px;
-            letter-spacing: -0.2px;
-            font-weight: 700;
             opacity: 0;
             animation: fadeInUp 0.8s ease-out 0.1s forwards;
             position: relative;
@@ -517,24 +509,6 @@
             animation: fadeInUp 0.8s ease-out 0.3s forwards;
             position: relative;
             z-index: 2;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 16px 36px;
-            background: var(--navy);
-            color: var(--cream);
-            text-decoration: none;
-            border-radius: 3px;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
-
-        .cta-button:hover {
-            background: var(--orange);
-            color: var(--graphite);
-            transform: translateY(-2px);
         }
 
         /* ===== FOOTER ===== */
@@ -607,18 +581,6 @@
             text-align: center;
             font-size: 13px;
             color: rgba(245, 240, 232, 0.5);
-        }
-
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         /* ===== RESPONSIVE ===== */
@@ -705,60 +667,28 @@
                 margin-bottom: 40px;
             }
 
-            .diff-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .diff-card {
-                padding: 32px 20px;
-            }
-
-            .diff-card h3 {
-                font-size: 18px;
-                letter-spacing: -0.2px;
-            }
-
-            .diff-card p {
-                font-size: 14px;
-            }
-
-            .diff-item {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .diff-item:nth-child(even) {
-                direction: ltr;
-            }
-
-            .comparison-table {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
-
-            .comparison-col {
-                padding: 20px;
-            }
-
-            .comparison-col h3 {
+            .accordion-header h3 {
                 font-size: 16px;
                 letter-spacing: -0.2px;
             }
 
-            .comparison-label,
-            .comparison-value {
-                font-size: 14px;
+            .accordion-body ul {
+                padding-left: 20px;
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
+            .accordion-body li {
+                font-size: 15px;
+                margin-bottom: 10px;
             }
 
-            .comparison-section {
-                margin: 40px -20px;
-                padding: 50px 20px;
+            .accordion-body h4 {
+                font-size: 16px;
+                margin-top: 20px;
+                margin-bottom: 12px;
+            }
+
+            .accordion-body p {
+                font-size: 15px;
             }
 
             .cta-button {
@@ -767,6 +697,15 @@
                 min-height: 44px;
                 display: inline-flex;
                 align-items: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .cta-section {
+                text-align: center;
             }
 
             .cta-section h2 {
@@ -806,21 +745,8 @@
                 font-size: 22px;
             }
 
-            .diff-card {
-                padding: 24px 16px;
-            }
-
-            .diff-card h3 {
-                font-size: 16px;
-            }
-
-            .comparison-section {
-                margin: 30px -16px;
-                padding: 40px 16px;
-            }
-
-            .comparison-col {
-                padding: 16px;
+            .accordion-header h3 {
+                font-size: 15px;
             }
 
             .cta-button {
@@ -852,118 +778,94 @@
 
     <!-- PAGE HEADER -->
     <header class="page-header">
-        <h1>Why We're Different</h1>
-        <p>Most podcast agencies will tell you they "care more" or that they're "data-driven." Here's what actually sets 313 apart.</p>
+        <h1>Podcast Strategy & Solutions</h1>
+        <p>We work with companies at any stage—whether you're launching your first podcast or fixing a broken system. Here's how we can help.</p>
     </header>
 
-    <!-- DIFFERENTIATORS -->
+    <!-- SERVICES ACCORDION -->
     <section>
-        <div class="diff-grid">
+        <h2>Choose Your Path</h2>
 
-            <!-- 1 -->
-            <div class="diff-card">
-                <h3>We've Been in the Chair</h3>
-                <p>The Dillon England Show has generated 1.5M+ organic YouTube views. We don't just produce podcasts—we host one. We've booked guests, recorded episodes, dealt with technical failures, and learned what actually works.</p>
-                <p>We've experienced how costly mistakes can be. Now we're passionate about helping you avoid them and succeed faster than we did.</p>
+        <!-- STARTING FROM SCRATCH -->
+        <div class="accordion-item" id="item-1">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Starting Your First Podcast</h3>
+                <span class="accordion-toggle">+</span>
             </div>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    <p>You know a podcast could be powerful for your business. You just need someone to build the system and handle the execution so you can focus on showing up and having conversations.</p>
+                    
+                    <h4>What We Do</h4>
+                    <ul>
+                        <li>Build your complete podcast strategy</li>
+                        <li>Identify your ideal guest profile (tied to your sales targets)</li>
+                        <li>Set up all production infrastructure and distribution</li>
+                        <li>Handle guest research, outreach, and booking</li>
+                        <li>Full video and audio production + editing</li>
+                        <li>YouTube optimization, short-form clips, show notes</li>
+                        <li>Track which guests turn into business opportunities</li>
+                    </ul>
 
-            <!-- 2 -->
-            <div class="diff-card">
-                <h3>YouTube-First Strategy</h3>
-                <p>YouTube is owned by Google. It's the #2 search engine on the planet. Your prospects are already there—searching for solutions, vetting credibility before they take a meeting.</p>
-                <p>We position your podcast where customers are already looking, not where we hope they'll find you.</p>
-            </div>
+                    <h4>The Options</h4>
+                    <p><strong>The Intensive</strong> — Dillon comes on-site for 3 days, builds your complete system, records your first episodes with live coaching, and trains your team. Perfect if you want everything set up right from day one.</p>
+                    
+                    <p><strong>The Partnership</strong> — High-touch ongoing support. Weekly strategy calls with Dillon, same-day access, and done-for-you guest strategy and production. Limited to 4 clients.</p>
+                    
+                    <p><strong>The System</strong> — Done-for-you production with monthly strategy calls. We handle everything; you focus on guests and conversations.</p>
 
-            <!-- 3 -->
-            <div class="diff-card">
-                <h3>We Track What Matters</h3>
-                <p>Views and downloads build your authority and reach. That's important—your show should be visible where prospects search. But visibility alone doesn't drive business. We track both: your exposure metrics AND guest-to-client conversions, referrals generated, and pipeline built.</p>
-                <p>21%* of guests from The Dillon England Show resulted in business opportunities—either becoming clients or generating referrals. We don't celebrate download numbers—we celebrate deals closed and relationships built. That's the difference between a podcast and a business development tool.</p>
-            </div>
+                    <h4>First Step</h4>
+                    <p>Everyone starts with a Podcast Launch Strategy — a 2-4 week engagement where we build your complete blueprint and you'll be ready to record Episode 1. Includes 30 days of support.</p>
 
-            <!-- 4 -->
-            <div class="diff-card">
-                <h3>A Proven System</h3>
-                <p>We've built a proprietary system for tracking guests from conversation to client. We know which guests are worth having, how to position them, how to follow up, and how to convert.</p>
-                <p>You get a process proven by experience, not guesswork.</p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- COMPARISON -->
-    <section class="comparison-section">
-        <h2>The Difference in Practice</h2>
-        
-        <div class="comparison-table">
-            <div class="comparison-col">
-                <h3>Most Agencies</h3>
-                <div class="comparison-item">
-                    <div class="comparison-label">Their Focus</div>
-                    <div class="comparison-value">Exposure and visibility (views, downloads, production quality)</div>
-                </div>
-                <div class="comparison-item">
-                    <div class="comparison-label">Their Background</div>
-                    <div class="comparison-value">Production experience, not hosting experience</div>
-                </div>
-                <div class="comparison-item">
-                    <div class="comparison-label">Your Job</div>
-                    <div class="comparison-value">Figure out guest strategy and conversions on your own</div>
-                </div>
-                <div class="comparison-item">
-                    <div class="comparison-label">Tracking</div>
-                    <div class="comparison-value">Generic analytics dashboards (views, downloads, play counts)</div>
-                </div>
-            </div>
-
-            <div class="comparison-col your-way">
-                <h3>vs.</h3>
-                <div class="comparison-item">
-                    <div style="color: rgba(245, 240, 232, 0.4); text-align: center; font-size: 24px;">↕</div>
-                </div>
-                <div class="comparison-item">
-                    <div style="color: rgba(245, 240, 232, 0.4); text-align: center; font-size: 24px;">↕</div>
-                </div>
-                <div class="comparison-item">
-                    <div style="color: rgba(245, 240, 232, 0.4); text-align: center; font-size: 24px;">↕</div>
-                </div>
-                <div class="comparison-item">
-                    <div style="color: rgba(245, 240, 232, 0.4); text-align: center; font-size: 24px;">↕</div>
-                </div>
-            </div>
-
-            <div class="comparison-col our-way">
-                <h3>313 Media Co</h3>
-                <div class="comparison-item">
-                    <div class="comparison-label">Our Focus</div>
-                    <div class="comparison-value">Exposure AND guest-to-client conversions and revenue</div>
-                </div>
-                <div class="comparison-item">
-                    <div class="comparison-label">Our Background</div>
-                    <div class="comparison-value">We host a successful show + produce (we do both)</div>
-                </div>
-                <div class="comparison-item">
-                    <div class="comparison-label">Your Job</div>
-                    <div class="comparison-value">Show up and have conversations (that's it)</div>
-                </div>
-                <div class="comparison-item">
-                    <div class="comparison-label">Tracking</div>
-                    <div class="comparison-value">Both visibility metrics AND guest-to-revenue conversions</div>
+                    <a href="https://calendly.com/dillon-313" class="cta-button">Schedule Your Strategy Call</a>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- FOOTNOTE -->
-    <section style="padding: 40px 60px; background: var(--cream); text-align: center; border-top: 1px solid var(--cream-dark);">
-        <p style="font-size: 12px; color: var(--slate-muted);">* Includes both direct clients and referral sources generated from guest relationships.</p>
+        <!-- ALREADY HAVE A PODCAST -->
+        <div class="accordion-item" id="item-2">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Already Have a Podcast</h3>
+                <span class="accordion-toggle">+</span>
+            </div>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    <p>You've launched. You have episodes. Maybe the system needs optimization. Maybe your strategy isn't clear. Or maybe it's not generating the business outcomes you hoped for. We audit what's happening and rebuild your strategy for real results.</p>
+
+                    <h4>What We Do</h4>
+                    <ul>
+                        <li>Audit your current strategy and execution</li>
+                        <li>Identify what's working and what's broken</li>
+                        <li>Rebuild your guest strategy (tied to your sales targets)</li>
+                        <li>Implement tracking systems for guest-to-client conversions</li>
+                        <li>Fix production quality if needed</li>
+                        <li>Set up proper YouTube optimization and distribution</li>
+                        <li>Create follow-up sequences so guests turn into relationships</li>
+                    </ul>
+
+                    <h4>The Options</h4>
+                    <p><strong>The Intensive</strong> — Dillon comes on-site for 3 days. Complete audit, strategy rebuild, production fix, and team training. You walk away with a clear plan and your system rebuilt.</p>
+                    
+                    <p><strong>The Partnership</strong> — Ongoing strategic support. Weekly calls with Dillon, done-for-you execution, and continuous optimization. Best if you need hands-on guidance to turn things around.</p>
+                    
+                    <p><strong>The System</strong> — Full production and strategy support with monthly check-ins. We implement the strategy you need and track results.</p>
+
+                    <h4>First Step</h4>
+                    <p>Start with a Podcast Audit & Optimization. We assess what's working, diagnose the problems, and give you a clear rebuild plan. Then you decide if you want us to execute it with you.</p>
+
+                    <a href="https://calendly.com/dillon-313" class="cta-button">Schedule Your Audit</a>
+                </div>
+            </div>
+        </div>
+
+
     </section>
 
     <!-- CTA -->
     <section class="cta-section">
-        <h2>Experience the Difference</h2>
-        <p>Let's talk about how a podcast built the right way can become your most powerful business development tool.</p>
-        <a href="https://calendly.com/dillon-313" class="cta-button">Schedule Your Strategy Call</a>
+        <h2>Not Sure Which Path Is Right?</h2>
+        <p>That's what the strategy call is for. We'll ask questions about your business, your goals, and your constraints—then recommend the right fit.</p>
+        <a href="https://calendly.com/dillon-313" class="cta-button">Book Your Free Strategy Call</a>
     </section>
 
     <!-- FOOTER -->
@@ -976,10 +878,9 @@
             </div>
             <div class="footer-col">
                 <h4>Services</h4>
-                <a href="/313-services.html">All Services</a>
-                <a href="/313-services.html#item-1">Starting Fresh</a>
-                <a href="/313-services.html#item-2">Fixing Podcasts</a>
-                <a href="/313-services.html#item-3">Content Overload</a>
+                <a href="#item-1">Starting Fresh</a>
+                <a href="#item-2">Fixing Broken Podcasts</a>
+                <a href="/313-content-overload.html">Content Overload</a>
             </div>
             <div class="footer-col">
                 <h4>Company</h4>
@@ -1016,6 +917,21 @@
                     navMenu.classList.remove('active');
                 });
             });
+        }
+
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            const allItems = document.querySelectorAll('.accordion-item');
+            
+            // Close all other items
+            allItems.forEach(el => {
+                if (el !== item) {
+                    el.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            item.classList.toggle('active');
         }
     </script>
 

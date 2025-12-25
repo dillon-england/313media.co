@@ -168,6 +168,7 @@
         }
 
         .nav-cta {
+            display: inline-block;
             background: var(--navy);
             color: var(--cream) !important;
             padding: 12px 28px;
@@ -175,6 +176,7 @@
             font-weight: 600;
             font-size: 13px;
             transition: all 0.3s;
+            text-decoration: none;
         }
 
         .nav-cta:hover {
@@ -515,6 +517,8 @@
             gap: 40px;
             position: relative;
             z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .process-grid::before {
@@ -635,7 +639,7 @@
 
         /* ===== FAQ ===== */
         .faq-item {
-            padding: 40px 0;
+            padding: 0;
             border-bottom: 1px solid var(--cream-dark);
             opacity: 0;
             animation: fadeInUp 0.8s ease-out forwards;
@@ -658,15 +662,25 @@
             border-bottom: none;
         }
 
+        .faq-header {
+            padding: 24px 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
         .faq-item h3 {
             font-family: 'Oswald', sans-serif;
-            font-size: 20px;
+            font-size: 18px;
             color: var(--graphite);
-            margin-bottom: 16px;
+            margin-bottom: 0;
             font-weight: 700;
             position: relative;
             padding-left: 16px;
             transition: color 0.3s;
+            flex: 1;
         }
 
         .faq-item h3::before {
@@ -688,10 +702,32 @@
             opacity: 1;
         }
 
+        .faq-toggle {
+            font-size: 24px;
+            color: var(--orange);
+            transition: transform 0.3s;
+            margin-left: 16px;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-content {
+            max-height: 500px;
+        }
+
         .faq-item p {
             font-size: 15px;
             color: var(--slate);
             line-height: 1.7;
+            padding-bottom: 24px;
         }
 
         /* ===== FOOTER ===== */
@@ -774,6 +810,7 @@
                 align-items: center;
                 justify-content: space-between;
             }
+            overflow: visible;
 
             .logo {
                 flex: 1;
@@ -781,6 +818,8 @@
 
             .hamburger {
                 display: flex;
+            flex-shrink: 0;
+            margin-left: 16px;
             }
 
             .nav-menu {
@@ -809,6 +848,7 @@
             }
 
             .nav-cta {
+            display: inline-block;
                 margin: 12px;
                 width: calc(100% - 24px);
             }
@@ -1234,28 +1274,53 @@
         <h2>Questions</h2>
 
         <div class="faq-item">
-            <h3>Who is Content Overload for?</h3>
-            <p>Founders and thought leaders who know their expertise deserves more visibility but don't have time to manage social media. You're not hiring a social team. You're getting a done-for-you content machine.</p>
+            <div class="faq-header" onclick="toggleFAQ(this)">
+                <h3>Who is Content Overload for?</h3>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-content">
+                <p>Founders and thought leaders who know their expertise deserves more visibility but don't have time to manage social media. You're not hiring a social team. You're getting a done-for-you content machine.</p>
+            </div>
         </div>
 
         <div class="faq-item">
-            <h3>Do I have to have a podcast?</h3>
-            <p>No. Content Overload works with any conversation—a podcast episode, a recorded interview, or a strategic conversation we record together. It doesn't have to be a show.</p>
+            <div class="faq-header" onclick="toggleFAQ(this)">
+                <h3>Do I have to have a podcast?</h3>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-content">
+                <p>No. Content Overload works with any conversation—a podcast episode, a recorded interview, or a strategic conversation we record together. It doesn't have to be a show.</p>
+            </div>
         </div>
 
         <div class="faq-item">
-            <h3>What if I already have a podcast?</h3>
-            <p>Even better. We can use your show as the source for Content Overload. One episode becomes 60+ pieces for social, LinkedIn, email, etc. You're leveraging the content you're already creating.</p>
+            <div class="faq-header" onclick="toggleFAQ(this)">
+                <h3>What if I already have a podcast?</h3>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-content">
+                <p>Even better. We can use your show as the source for Content Overload. One episode becomes 60+ pieces for social, LinkedIn, email, etc. You're leveraging the content you're already creating.</p>
+            </div>
         </div>
 
         <div class="faq-item">
-            <h3>How long does this take to deliver?</h3>
-            <p>The content is typically delivered within 2 weeks of the interview. The content calendar is included so you know exactly when to post everything.</p>
+            <div class="faq-header" onclick="toggleFAQ(this)">
+                <h3>How long does this take to deliver?</h3>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-content">
+                <p>The content is typically delivered within 2 weeks of the interview. The content calendar is included so you know exactly when to post everything.</p>
+            </div>
         </div>
 
         <div class="faq-item">
-            <h3>Can I use this content forever?</h3>
-            <p>Yes. Once delivered, all content is yours to use. You can post it, repurpose it, archive it, share it however you want.</p>
+            <div class="faq-header" onclick="toggleFAQ(this)">
+                <h3>Can I use this content forever?</h3>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-content">
+                <p>Yes. Once delivered, all content is yours to use. You can post it, repurpose it, archive it, share it however you want.</p>
+            </div>
         </div>
     </section>
 
@@ -1296,6 +1361,40 @@
             <p>© 2025 313 Media Co. Detroit, Michigan.</p>
         </div>
     </footer>
+
+    <script>
+        // FAQ toggle
+        function toggleFAQ(header) {
+            const item = header.parentElement;
+            const allItems = document.querySelectorAll('.faq-item');
+            
+            allItems.forEach(i => {
+                if (i !== item) {
+                    i.classList.remove('active');
+                }
+            });
+            
+            item.classList.toggle('active');
+        }
+
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
 
 </body>
 </html>
