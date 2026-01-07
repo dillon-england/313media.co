@@ -86,6 +86,36 @@
         color: var(--graphite);
       }
 
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 8px;
+      }
+
+      .hamburger span {
+        width: 24px;
+        height: 2px;
+        background: var(--graphite);
+        border-radius: 2px;
+        transition: all 0.3s;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translateY(10px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translateY(-10px);
+      }
+
       .nav-menu {
         display: flex;
         gap: 48px;
@@ -117,57 +147,7 @@
       }
 
       .nav-menu a:hover::after {
-        .hamburger {
-          display: none;
-          flex-direction: column;
-          gap: 5px;
-          cursor: pointer;
-          background: none;
-          border: none;
-          padding: 8px;
-        }
-        .hamburger span {
-          width: 24px;
-          height: 2px;
-          background: var(--graphite);
-          border-radius: 2px;
-          transition: all 0.3s;
-        }
-        .hamburger.active span:nth-child(1) {
-          transform: rotate(45deg) translateY(10px);
-        }
-        .hamburger.active span:nth-child(2) {
-          opacity: 0;
-        }
-        .hamburger.active span:nth-child(3) {
-          transform: rotate(-45deg) translateY(-10px);
-        }
         width: 100%;
-        .hamburger {
-          display: none;
-          flex-direction: column;
-          gap: 5px;
-          cursor: pointer;
-          background: none;
-          border: none;
-          padding: 8px;
-        }
-        .hamburger span {
-          width: 24px;
-          height: 2px;
-          background: var(--graphite);
-          border-radius: 2px;
-          transition: all 0.3s;
-        }
-        .hamburger.active span:nth-child(1) {
-          transform: rotate(45deg) translateY(10px);
-        }
-        .hamburger.active span:nth-child(2) {
-          opacity: 0;
-        }
-        .hamburger.active span:nth-child(3) {
-          transform: rotate(-45deg) translateY(-10px);
-        }
       }
 
       .nav-cta {
@@ -216,6 +196,11 @@
         pointer-events: none;
       }
 
+      .page-header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
       .page-header-tagline {
         font-size: 14px;
         color: var(--orange);
@@ -255,7 +240,10 @@
 
       /* ===== SECTION ===== */
       section {
-        padding: 60px 60px 80px 60px;
+        padding: 80px 60px;
+      }
+
+      .section-inner {
         max-width: 1200px;
         margin: 0 auto;
       }
@@ -306,10 +294,14 @@
       .problem-section {
         background: var(--cream-light);
         border-left: 4px solid var(--orange);
-        margin: 0 -60px;
         padding: 80px 60px;
         opacity: 0;
         animation: fadeInUp 0.8s ease-out 0.2s forwards;
+      }
+
+      .problem-section .section-inner {
+        max-width: 1200px;
+        margin: 0 auto;
       }
 
       .problem-section h3 {
@@ -333,7 +325,7 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 40px;
-        margin: 60px 0;
+        margin: 60px 0 0 0;
       }
 
       .pillar {
@@ -388,6 +380,7 @@
         font-size: 15px;
         color: var(--slate);
         line-height: 1.7;
+        margin-bottom: 0;
       }
 
       /* ===== SERVICE OPTIONS ===== */
@@ -406,6 +399,8 @@
         opacity: 0;
         animation: fadeInUp 0.8s ease-out forwards;
         transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
       }
 
       .service-card:nth-child(1) {
@@ -460,6 +455,10 @@
         line-height: 1.6;
       }
 
+      .service-card .cta-button {
+        margin-top: auto;
+      }
+
       /* ===== CTA BUTTON ===== */
       .cta-button {
         display: inline-block;
@@ -474,6 +473,7 @@
         transition: all 0.3s;
         opacity: 0;
         animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        text-align: center;
       }
 
       .cta-button:hover {
@@ -486,7 +486,6 @@
       .process-section {
         background: var(--navy);
         color: var(--cream);
-        margin: 0 -60px;
         padding: 80px 60px;
         position: relative;
         overflow: hidden;
@@ -506,6 +505,11 @@
         );
         border-radius: 50%;
         pointer-events: none;
+      }
+
+      .process-section .section-inner {
+        max-width: 1200px;
+        margin: 0 auto;
       }
 
       .process-section h2 {
@@ -528,19 +532,22 @@
         gap: 40px;
         position: relative;
         z-index: 2;
-        max-width: 1200px;
-        margin: 0 auto;
       }
 
       .process-grid::before {
         content: "";
         position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
+        top: 40px;
+        left: 60px;
+        right: 60px;
         height: 2px;
-        background: linear-gradient(to right, var(--orange), transparent);
-        opacity: 0.3;
+        background: linear-gradient(
+          to right,
+          var(--orange),
+          rgba(249, 115, 22, 0.3),
+          transparent
+        );
+        opacity: 0.5;
         z-index: 0;
       }
 
@@ -576,6 +583,7 @@
         position: relative;
         z-index: 2;
         background: var(--navy);
+        display: inline-block;
         padding: 0 12px;
       }
 
@@ -584,6 +592,7 @@
         font-size: 16px;
         font-weight: 700;
         margin-bottom: 12px;
+        color: var(--cream);
       }
 
       .step-desc {
@@ -602,13 +611,24 @@
         overflow: hidden;
       }
 
+      .result-section .section-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
       .result-section h2 {
         opacity: 0;
         animation: fadeInUp 0.8s ease-out 0.1s forwards;
-        margin-bottom: 60px !important;
+        margin-bottom: 60px;
+        text-align: center;
       }
 
-      .result-section > div {
+      .result-section h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .result-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 40px;
@@ -648,7 +668,23 @@
         font-weight: 500;
       }
 
+      .result-tagline {
+        font-size: 20px;
+        color: var(--graphite);
+        margin-top: 40px;
+        font-weight: 600;
+      }
+
       /* ===== FAQ ===== */
+      .faq-section {
+        padding: 100px 60px;
+      }
+
+      .faq-section .section-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
       .faq-item {
         padding: 0;
         border-bottom: 1px solid var(--cream-dark);
@@ -662,10 +698,18 @@
       }
 
       .faq-item:nth-child(2) {
-        animation-delay: 0.3s;
+        animation-delay: 0.25s;
       }
 
       .faq-item:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+
+      .faq-item:nth-child(4) {
+        animation-delay: 0.35s;
+      }
+
+      .faq-item:nth-child(5) {
         animation-delay: 0.4s;
       }
 
@@ -698,6 +742,7 @@
         content: "";
         position: absolute;
         left: 0;
+        top: 0;
         width: 4px;
         height: 100%;
         background: var(--orange);
@@ -718,10 +763,11 @@
         color: var(--orange);
         transition: transform 0.3s;
         margin-left: 16px;
+        font-weight: 300;
       }
 
       .faq-item.active .faq-toggle {
-        transform: rotate(180deg);
+        transform: rotate(45deg);
       }
 
       .faq-content {
@@ -734,11 +780,43 @@
         max-height: 500px;
       }
 
-      .faq-item p {
+      .faq-item .faq-content p {
         font-size: 15px;
         color: var(--slate);
         line-height: 1.7;
         padding-bottom: 24px;
+        margin-bottom: 0;
+      }
+
+      /* ===== FINAL CTA ===== */
+      .cta-section {
+        padding: 120px 60px;
+        text-align: center;
+        background: var(--cream);
+      }
+
+      .cta-section .section-inner {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .cta-section h2 {
+        text-align: center;
+      }
+
+      .cta-section h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .cta-section p {
+        font-size: 18px;
+        color: var(--slate);
+        margin-bottom: 40px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.7;
       }
 
       /* ===== FOOTER ===== */
@@ -814,23 +892,40 @@
       }
 
       /* ===== RESPONSIVE ===== */
+      @media (max-width: 1024px) {
+        .pillars,
+        .service-grid {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+
+        .process-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 40px 24px;
+        }
+
+        .process-grid::before {
+          display: none;
+        }
+
+        .result-grid {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+        }
+      }
+
       @media (max-width: 768px) {
         nav {
-          padding: 12px 16px;
-          flex-direction: row;
-          align-items: center;
-          justify-content: space-between;
-        }
-        overflow: visible;
-
-        .logo {
-          flex: 1;
+          padding: 16px 20px;
         }
 
         .hamburger {
           display: flex;
-          flex-shrink: 0;
-          margin-left: 16px;
         }
 
         .nav-menu {
@@ -858,177 +953,27 @@
           display: block;
         }
 
+        .nav-menu a::after {
+          display: none;
+        }
+
         .nav-cta {
-          display: inline-block;
-          margin: 12px;
-          width: calc(100% - 24px);
+          margin: 16px 24px;
+          width: calc(100% - 48px);
+          text-align: center;
         }
 
         .logo-num {
-          font-size: 18px;
+          font-size: 20px;
         }
 
         .logo-text {
-          font-size: 8px;
+          font-size: 9px;
         }
 
         .page-header {
-          padding: 50px 20px;
-          margin-top: 100px;
-        }
-
-        .page-header-tagline {
-          font-size: 13px;
-          margin-bottom: 12px;
-        }
-
-        .page-header h1 {
-          font-size: 28px;
-          letter-spacing: -0.2px;
-          margin-bottom: 16px;
-        }
-
-        .page-header p {
-          font-size: 15px;
-        }
-
-        section {
-          padding: 50px 20px;
-        }
-
-        section h2 {
-          font-size: 26px;
-          letter-spacing: -0.2px;
-          margin-bottom: 40px;
-        }
-
-        section h3 {
-          font-size: 20px;
-          letter-spacing: -0.2px;
-          margin-bottom: 20px;
-        }
-
-        section p {
-          font-size: 15px;
-        }
-
-        .problem-section {
-          margin: 40px -20px;
-          padding: 50px 20px;
-        }
-
-        .pillars,
-        .service-grid,
-        .process-grid {
-          grid-template-columns: 1fr;
-          gap: 24px;
-        }
-
-        .pillar h3 {
-          font-size: 18px;
-          letter-spacing: -0.2px;
-        }
-
-        .pillar p {
-          font-size: 14px;
-        }
-
-        .process-step {
-          padding: 24px 20px;
-        }
-
-        .process-step .step-number {
-          font-size: 28px;
-        }
-
-        .process-step .step-title {
-          font-size: 16px;
-          letter-spacing: -0.2px;
-        }
-
-        .process-step .step-desc {
-          font-size: 14px;
-        }
-
-        .service-card {
-          padding: 28px 20px;
-        }
-
-        .service-card h3 {
-          font-size: 18px;
-          letter-spacing: -0.2px;
-        }
-
-        .service-card-detail {
-          font-size: 14px;
-        }
-
-        .result-stat .result-number {
-          font-size: 36px;
-        }
-
-        .result-stat .result-label {
-          font-size: 14px;
-        }
-
-        .faq-item h3 {
-          font-size: 16px;
-          letter-spacing: -0.2px;
-        }
-
-        .faq-item p {
-          font-size: 14px;
-        }
-
-        .footer-grid {
-          grid-template-columns: 1fr;
-          gap: 24px;
-        }
-
-        .process-section {
-          margin: 40px -20px;
-          padding: 50px 20px;
-        }
-
-        .cta-button {
-          padding: 12px 24px;
-          font-size: 13px;
-          min-height: 44px;
-          display: inline-flex;
-          align-items: center;
-        }
-
-        .cta-section {
-          text-align: center;
-        }
-
-        .cta-section h2 {
-          font-size: 24px;
-          letter-spacing: -0.2px;
-        }
-
-        .cta-section p {
-          font-size: 15px;
-        }
-
-        .result-section {
-          text-align: center;
-        }
-      }
-
-      @media (max-width: 480px) {
-        nav {
-          padding: 12px 16px;
-        }
-
-        .nav-menu {
-          gap: 12px;
-          margin-top: 12px;
-        }
-
-        .page-header {
-          padding: 40px 16px;
-          margin-top: 100px;
+          padding: 60px 20px;
+          margin-top: 60px;
         }
 
         .page-header-tagline {
@@ -1036,68 +981,155 @@
         }
 
         .page-header h1 {
-          font-size: 24px;
-        }
-
-        section {
-          padding: 40px 16px;
-        }
-
-        section h2 {
-          font-size: 22px;
-        }
-
-        section h3 {
-          font-size: 18px;
-        }
-
-        .problem-section {
-          margin: 30px -16px;
-          padding: 40px 16px;
-        }
-
-        .pillar h3 {
-          font-size: 16px;
-        }
-
-        .process-step {
-          padding: 20px 16px;
-        }
-
-        .process-step .step-number {
-          font-size: 24px;
-        }
-
-        .service-card {
-          padding: 24px 16px;
-        }
-
-        .service-card h3 {
-          font-size: 16px;
-        }
-
-        .result-stat .result-number {
           font-size: 32px;
         }
 
-        .faq-item h3 {
-          font-size: 15px;
+        .page-header p {
+          font-size: 16px;
         }
 
-        .result-section {
-          padding: 80px 16px;
+        section {
+          padding: 60px 20px;
+        }
+
+        section h2 {
+          font-size: 28px;
+          margin-bottom: 32px;
+        }
+
+        .problem-section {
+          padding: 60px 20px;
+        }
+
+        .problem-section h3 {
+          font-size: 22px;
+        }
+
+        .pillar {
+          padding: 32px 24px;
+        }
+
+        .pillar h3 {
+          font-size: 18px;
         }
 
         .process-section {
-          margin: 30px -16px;
-          padding: 40px 16px;
+          padding: 60px 20px;
+        }
+
+        .process-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+
+        .step-number {
+          font-size: 36px;
+        }
+
+        .service-card {
+          padding: 32px 24px;
+        }
+
+        .service-card h3 {
+          font-size: 20px;
+        }
+
+        .result-section {
+          padding: 80px 20px;
+        }
+
+        .result-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+
+        .result-number {
+          font-size: 48px;
+        }
+
+        .faq-section {
+          padding: 80px 20px;
+        }
+
+        .faq-item h3 {
+          font-size: 16px;
+        }
+
+        .cta-section {
+          padding: 80px 20px;
+        }
+
+        .cta-section h2 {
+          font-size: 28px;
         }
 
         .cta-button {
-          display: block;
-          width: 100%;
-          text-align: center;
-          padding: 14px 20px;
+          padding: 14px 28px;
+          font-size: 13px;
+        }
+
+        footer {
+          padding: 60px 20px;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+          margin-bottom: 40px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .page-header {
+          padding: 50px 16px;
+        }
+
+        .page-header h1 {
+          font-size: 28px;
+        }
+
+        section {
+          padding: 50px 16px;
+        }
+
+        section h2 {
+          font-size: 24px;
+        }
+
+        .problem-section {
+          padding: 50px 16px;
+        }
+
+        .pillar {
+          padding: 24px 20px;
+        }
+
+        .process-section {
+          padding: 50px 16px;
+        }
+
+        .service-card {
+          padding: 24px 20px;
+        }
+
+        .result-section {
+          padding: 60px 16px;
+        }
+
+        .result-number {
+          font-size: 40px;
+        }
+
+        .faq-section {
+          padding: 60px 16px;
+        }
+
+        .cta-section {
+          padding: 60px 16px;
+        }
+
+        footer {
+          padding: 50px 16px;
         }
       }
     </style>
@@ -1124,106 +1156,116 @@
 
     <!-- PAGE HEADER -->
     <header class="page-header">
-      <p class="page-header-tagline">
-        For founders, thought leaders, and business professionals who know their
-        expertise deserves more visibility—but don't have time to be everywhere.
-      </p>
-      <h1>Content Overload</h1>
-      <p>
-        One hour of conversation. A quarter's worth of content. For founders and
-        thought leaders who know they should be everywhere—but don't have time
-        to be.
-      </p>
+      <div class="page-header-content">
+        <p class="page-header-tagline">
+          For founders, thought leaders, and business professionals who know
+          their expertise deserves more visibility—but don't have time to be
+          everywhere.
+        </p>
+        <h1>Content Overload</h1>
+        <p>
+          One hour of conversation. A quarter's worth of content. For founders
+          and thought leaders who know they should be everywhere—but don't have
+          time to be.
+        </p>
+      </div>
     </header>
 
     <!-- THE PROBLEM -->
     <section class="problem-section">
-      <h3>Every Business Has a Time Problem, Not a Content Problem</h3>
-      <p>
-        You have the ideas. The opinions. The stories. The insights your market
-        needs to hear.
-      </p>
-      <p>
-        The problem isn't a lack of content—it's the time to say it, package it,
-        and distribute it everywhere. You're told to "post every day" and "be on
-        every platform." But you're also running a business.
-      </p>
-      <p>
-        Most founders choose: either neglect your visibility or sacrifice your
-        sanity. We give you a third option.
-      </p>
+      <div class="section-inner">
+        <h3>Every Business Has a Time Problem, Not a Content Problem</h3>
+        <p>
+          You have the ideas. The opinions. The stories. The insights your
+          market needs to hear.
+        </p>
+        <p>
+          The problem isn't a lack of content—it's the time to say it, package
+          it, and distribute it everywhere. You're told to "post every day" and
+          "be on every platform." But you're also running a business.
+        </p>
+        <p>
+          Most founders choose: either neglect your visibility or sacrifice your
+          sanity. We give you a third option.
+        </p>
+      </div>
     </section>
 
     <!-- THE SOLUTION -->
     <section>
-      <h2>One Conversation. Infinite Content.</h2>
-      <p>
-        Content Overload transforms a single, strategic 60-minute interview into
-        your complete content engine for 1-3 months.
-      </p>
+      <div class="section-inner">
+        <h2>One Conversation. Infinite Content.</h2>
+        <p>
+          Content Overload transforms a single, strategic 60-minute interview
+          into your complete content engine for 1-3 months.
+        </p>
 
-      <div class="pillars">
-        <div class="pillar">
-          <h3>Time</h3>
-          <p>
-            One hour of your time instead of 5+ hours per week. You show up for
-            one conversation. We deliver a quarter's worth of ready-to-post
-            content across all platforms.
-          </p>
-        </div>
-        <div class="pillar">
-          <h3>Exposure</h3>
-          <p>
-            Your message everywhere. One interview becomes short-form videos,
-            long-form clips, graphics, quote cards, written posts, and copy
-            optimized for YouTube, LinkedIn, Instagram, TikTok, X, and more.
-          </p>
-        </div>
-        <div class="pillar">
-          <h3>Consistency</h3>
-          <p>
-            Stay visible without thinking about it. You get a complete content
-            calendar showing exactly which content goes where and when. No more
-            guessing. No more gaps.
-          </p>
+        <div class="pillars">
+          <div class="pillar">
+            <h3>Time</h3>
+            <p>
+              One hour of your time instead of 5+ hours per week. You show up
+              for one conversation. We deliver a quarter's worth of
+              ready-to-post content across all platforms.
+            </p>
+          </div>
+          <div class="pillar">
+            <h3>Exposure</h3>
+            <p>
+              Your message everywhere. One interview becomes short-form videos,
+              long-form clips, graphics, quote cards, written posts, and copy
+              optimized for YouTube, LinkedIn, Instagram, TikTok, X, and more.
+            </p>
+          </div>
+          <div class="pillar">
+            <h3>Consistency</h3>
+            <p>
+              Stay visible without thinking about it. You get a complete content
+              calendar showing exactly which content goes where and when. No
+              more guessing. No more gaps.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- HOW IT WORKS -->
     <section class="process-section">
-      <h2>How It Works</h2>
-      <div class="process-grid">
-        <div class="process-step">
-          <div class="step-number">1</div>
-          <div class="step-title">The Interview</div>
-          <div class="step-desc">
-            60 minutes of strategic, in-depth conversation about your business,
-            philosophy, insights, and unique perspective.
+      <div class="section-inner">
+        <h2>How It Works</h2>
+        <div class="process-grid">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <div class="step-title">The Interview</div>
+            <div class="step-desc">
+              60 minutes of strategic, in-depth conversation about your
+              business, philosophy, insights, and unique perspective.
+            </div>
           </div>
-        </div>
-        <div class="process-step">
-          <div class="step-number">2</div>
-          <div class="step-title">The Creation</div>
-          <div class="step-desc">
-            We transform that conversation into 60+ pieces: videos, graphics,
-            posts, copy, audiograms—everything ready to go.
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <div class="step-title">The Creation</div>
+            <div class="step-desc">
+              We transform that conversation into 60+ pieces: videos, graphics,
+              posts, copy, audiograms—everything ready to go.
+            </div>
           </div>
-        </div>
-        <div class="process-step">
-          <div class="step-number">3</div>
-          <div class="step-title">The Delivery</div>
-          <div class="step-desc">
-            60+ ready-to-post content pieces. 1-3 month content calendar. Guides
-            for each platform. Everything you need to own your visibility.
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <div class="step-title">The Delivery</div>
+            <div class="step-desc">
+              60+ ready-to-post content pieces. 1-3 month content calendar.
+              Guides for each platform. Everything you need to own your
+              visibility.
+            </div>
           </div>
-        </div>
-        <div class="process-step">
-          <div class="step-number">4</div>
-          <div class="step-title">The Result</div>
-          <div class="step-desc">
-            Your brand shows up everywhere. Consistent. Professional. Without
-            you living on social media.
+          <div class="process-step">
+            <div class="step-number">4</div>
+            <div class="step-title">The Result</div>
+            <div class="step-desc">
+              Your brand shows up everywhere. Consistent. Professional. Without
+              you living on social media.
+            </div>
           </div>
         </div>
       </div>
@@ -1231,231 +1273,215 @@
 
     <!-- SERVICE OPTIONS -->
     <section>
-      <h2>Three Ways to Work</h2>
+      <div class="section-inner">
+        <h2>Three Ways to Work</h2>
 
-      <div class="service-grid">
-        <!-- PREMIUM -->
-        <div class="service-card">
-          <h3>Premium Overload</h3>
+        <div class="service-grid">
+          <!-- PREMIUM -->
+          <div class="service-card">
+            <h3>Premium Overload</h3>
 
-          <div class="service-card-detail">
-            <div class="detail-label">Format</div>
-            <div class="detail-value">
-              In-person with full production + photo session
+            <div class="service-card-detail">
+              <div class="detail-label">Format</div>
+              <div class="detail-value">
+                In-person with full production + photo session
+              </div>
             </div>
-          </div>
 
-          <div class="service-card-detail">
-            <div class="detail-label">Includes</div>
-            <div class="detail-value">
-              60+ content pieces + The Dillon England Show appearance + guest
-              promotion to 1.5M+ audience
+            <div class="service-card-detail">
+              <div class="detail-label">Includes</div>
+              <div class="detail-value">
+                60+ content pieces + The Dillon England Show appearance + guest
+                promotion to 1.5M+ audience
+              </div>
             </div>
-          </div>
 
-          <div class="service-card-detail">
-            <div class="detail-label">Best For</div>
-            <div class="detail-value">
-              Going all-in on visibility and premium positioning
+            <div class="service-card-detail">
+              <div class="detail-label">Best For</div>
+              <div class="detail-value">
+                Going all-in on visibility and premium positioning
+              </div>
             </div>
+
+            <a href="https://calendly.com/dillon-313" class="cta-button"
+              >Let's Talk</a
+            >
           </div>
 
-          <a href="https://calendly.com/dillon-313" class="cta-button"
-            >Let's Talk</a
-          >
-        </div>
+          <!-- IN-PERSON -->
+          <div class="service-card">
+            <h3>In-Person Overload</h3>
 
-        <!-- IN-PERSON -->
-        <div class="service-card">
-          <h3>In-Person Overload</h3>
-
-          <div class="service-card-detail">
-            <div class="detail-label">Format</div>
-            <div class="detail-value">
-              Professional on-site shoot (we come to you)
+            <div class="service-card-detail">
+              <div class="detail-label">Format</div>
+              <div class="detail-value">
+                Professional on-site shoot (we come to you)
+              </div>
             </div>
-          </div>
 
-          <div class="service-card-detail">
-            <div class="detail-label">Includes</div>
-            <div class="detail-value">
-              60+ content pieces + professional video/audio quality + content
-              calendar
+            <div class="service-card-detail">
+              <div class="detail-label">Includes</div>
+              <div class="detail-value">
+                60+ content pieces + professional video/audio quality + content
+                calendar
+              </div>
             </div>
-          </div>
 
-          <div class="service-card-detail">
-            <div class="detail-label">Best For</div>
-            <div class="detail-value">
-              Premium content that stands out in the feed
+            <div class="service-card-detail">
+              <div class="detail-label">Best For</div>
+              <div class="detail-value">
+                Premium content that stands out in the feed
+              </div>
             </div>
+
+            <a href="https://calendly.com/dillon-313" class="cta-button"
+              >Let's Talk</a
+            >
           </div>
 
-          <a href="https://calendly.com/dillon-313" class="cta-button"
-            >Let's Talk</a
-          >
-        </div>
+          <!-- VIRTUAL -->
+          <div class="service-card">
+            <h3>Virtual Overload</h3>
 
-        <!-- VIRTUAL -->
-        <div class="service-card">
-          <h3>Virtual Overload</h3>
-
-          <div class="service-card-detail">
-            <div class="detail-label">Format</div>
-            <div class="detail-value">Virtual call (flexible scheduling)</div>
-          </div>
-
-          <div class="service-card-detail">
-            <div class="detail-label">Includes</div>
-            <div class="detail-value">
-              60+ content pieces + content calendar for 1-3 months
+            <div class="service-card-detail">
+              <div class="detail-label">Format</div>
+              <div class="detail-value">Virtual call (flexible scheduling)</div>
             </div>
-          </div>
 
-          <div class="service-card-detail">
-            <div class="detail-label">Best For</div>
-            <div class="detail-value">
-              Founders who want full content engine without the budget
+            <div class="service-card-detail">
+              <div class="detail-label">Includes</div>
+              <div class="detail-value">
+                60+ content pieces + content calendar for 1-3 months
+              </div>
             </div>
-          </div>
 
-          <a href="https://calendly.com/dillon-313" class="cta-button"
-            >Let's Talk</a
-          >
+            <div class="service-card-detail">
+              <div class="detail-label">Best For</div>
+              <div class="detail-value">
+                Founders who want full content engine without the budget
+              </div>
+            </div>
+
+            <a href="https://calendly.com/dillon-313" class="cta-button"
+              >Let's Talk</a
+            >
+          </div>
         </div>
       </div>
     </section>
 
     <!-- RESULTS -->
     <section class="result-section">
-      <h2 style="text-align: center; margin-bottom: 60px">
-        What This Looks Like
-      </h2>
+      <div class="section-inner">
+        <h2>What This Looks Like</h2>
 
-      <div>
-        <div class="result-stat">
-          <div class="result-number">60+</div>
-          <div class="result-label">Unique Content Pieces</div>
+        <div class="result-grid">
+          <div class="result-stat">
+            <div class="result-number">60+</div>
+            <div class="result-label">Unique Content Pieces</div>
+          </div>
+
+          <div class="result-stat">
+            <div class="result-number">8+</div>
+            <div class="result-label">Different Platforms</div>
+          </div>
+
+          <div class="result-stat">
+            <div class="result-number">3</div>
+            <div class="result-label">Months of Content</div>
+          </div>
         </div>
 
-        <div class="result-stat">
-          <div class="result-number">8+</div>
-          <div class="result-label">Different Platforms</div>
-        </div>
-
-        <div class="result-stat">
-          <div class="result-number">3</div>
-          <div class="result-label">Months of Content</div>
-        </div>
+        <p class="result-tagline">All from 1 hour of your time.</p>
       </div>
-
-      <p
-        style="
-          font-size: 20px;
-          color: var(--graphite);
-          margin-top: 40px;
-          font-weight: 600;
-        "
-      >
-        All from 1 hour of your time.
-      </p>
     </section>
 
     <!-- FAQ -->
-    <section style="padding: 100px 60px">
-      <h2>Questions</h2>
+    <section class="faq-section">
+      <div class="section-inner">
+        <h2>Questions</h2>
 
-      <div class="faq-item">
-        <div class="faq-header" onclick="toggleFAQ(this)">
-          <h3>Who is Content Overload for?</h3>
-          <span class="faq-toggle">+</span>
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFAQ(this)">
+            <h3>Who is Content Overload for?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-content">
+            <p>
+              Founders and thought leaders who know their expertise deserves
+              more visibility but don't have time to manage social media. You're
+              not hiring a social team. You're getting a done-for-you content
+              machine.
+            </p>
+          </div>
         </div>
-        <div class="faq-content">
-          <p>
-            Founders and thought leaders who know their expertise deserves more
-            visibility but don't have time to manage social media. You're not
-            hiring a social team. You're getting a done-for-you content machine.
-          </p>
-        </div>
-      </div>
 
-      <div class="faq-item">
-        <div class="faq-header" onclick="toggleFAQ(this)">
-          <h3>Do I have to have a podcast?</h3>
-          <span class="faq-toggle">+</span>
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFAQ(this)">
+            <h3>Do I have to have a podcast?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-content">
+            <p>
+              No. Content Overload works with any conversation—a podcast
+              episode, a recorded interview, or a strategic conversation we
+              record together. It doesn't have to be a show.
+            </p>
+          </div>
         </div>
-        <div class="faq-content">
-          <p>
-            No. Content Overload works with any conversation—a podcast episode,
-            a recorded interview, or a strategic conversation we record
-            together. It doesn't have to be a show.
-          </p>
-        </div>
-      </div>
 
-      <div class="faq-item">
-        <div class="faq-header" onclick="toggleFAQ(this)">
-          <h3>What if I already have a podcast?</h3>
-          <span class="faq-toggle">+</span>
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFAQ(this)">
+            <h3>What if I already have a podcast?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-content">
+            <p>
+              Even better. We can use your show as the source for Content
+              Overload. One episode becomes 60+ pieces for social, LinkedIn,
+              email, etc. You're leveraging the content you're already creating.
+            </p>
+          </div>
         </div>
-        <div class="faq-content">
-          <p>
-            Even better. We can use your show as the source for Content
-            Overload. One episode becomes 60+ pieces for social, LinkedIn,
-            email, etc. You're leveraging the content you're already creating.
-          </p>
-        </div>
-      </div>
 
-      <div class="faq-item">
-        <div class="faq-header" onclick="toggleFAQ(this)">
-          <h3>How long does this take to deliver?</h3>
-          <span class="faq-toggle">+</span>
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFAQ(this)">
+            <h3>How long does this take to deliver?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-content">
+            <p>
+              The content is typically delivered within 2 weeks of the
+              interview. The content calendar is included so you know exactly
+              when to post everything.
+            </p>
+          </div>
         </div>
-        <div class="faq-content">
-          <p>
-            The content is typically delivered within 2 weeks of the interview.
-            The content calendar is included so you know exactly when to post
-            everything.
-          </p>
-        </div>
-      </div>
 
-      <div class="faq-item">
-        <div class="faq-header" onclick="toggleFAQ(this)">
-          <h3>Can I use this content forever?</h3>
-          <span class="faq-toggle">+</span>
-        </div>
-        <div class="faq-content">
-          <p>
-            Yes. Once delivered, all content is yours to use. You can post it,
-            repurpose it, archive it, share it however you want.
-          </p>
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFAQ(this)">
+            <h3>Can I use this content forever?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-content">
+            <p>
+              Yes. Once delivered, all content is yours to use. You can post it,
+              repurpose it, archive it, share it however you want.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section
-      style="padding: 120px 60px; text-align: center; background: var(--cream)"
-    >
-      <h2>Ready to Stop Creating Content and Start Living Your Life?</h2>
-      <p
-        style="
-          font-size: 18px;
-          color: var(--slate);
-          margin-bottom: 40px;
-          max-width: 600px;
-          margin-left: auto;
-          margin-right: auto;
-          line-height: 1.7;
-        "
-      >
-        Let's talk about which option makes sense for you.
-      </p>
-      <a href="https://calendly.com/dillon-313" class="cta-button"
-        >Schedule a Call</a
-      >
+    <section class="cta-section">
+      <div class="section-inner">
+        <h2>Ready to Stop Creating Content and Start Living Your Life?</h2>
+        <p>Let's talk about which option makes sense for you.</p>
+        <a href="https://calendly.com/dillon-313" class="cta-button"
+          >Schedule a Call</a
+        >
+      </div>
     </section>
 
     <!-- FOOTER -->
