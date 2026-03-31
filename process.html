@@ -1,0 +1,532 @@
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background-color: #ffffff;
+  }
+  .wrap {
+    font-family: var(--font-sans);
+    padding: 1.5rem 1rem 2.5rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .flywheel-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .flywheel-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #c05c00;
+    background: rgba(249, 115, 22, 0.12);
+    padding: 3px 14px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .connector-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 6px 0;
+  }
+  .conn-line {
+    width: 2px;
+    height: 22px;
+    background: #1e3a5f;
+    opacity: 0.4;
+  }
+  .conn-arrow {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 9px solid #1e3a5f;
+    opacity: 0.6;
+  }
+  .conn-txt {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--color-text-tertiary);
+    margin-bottom: 6px;
+  }
+  .blocks-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .block {
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 14px 24px;
+  }
+  .block-inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .block-num {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    min-width: 20px;
+  }
+  .block-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.2;
+  }
+  .block-outcome {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.65);
+    margin-top: 2px;
+    font-style: italic;
+  }
+  .b1 {
+    background: #1e3a5f;
+    width: 580px;
+  }
+  .b2 {
+    background: #25497a;
+    width: 510px;
+  }
+  .b3 {
+    background: #2c5896;
+    width: 440px;
+  }
+  .tagline {
+    text-align: center;
+    font-size: 10px;
+    color: var(--color-text-tertiary);
+    margin-top: 24px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+  @media (max-width: 620px) {
+    .b1 {
+      width: 100%;
+    }
+    .b2 {
+      width: 92%;
+    }
+    .b3 {
+      width: 84%;
+    }
+  }
+</style>
+
+<div class="wrap">
+  <div class="flywheel-wrap">
+    <div class="flywheel-label">ongoing production flywheel</div>
+
+    <!--
+      Canvas: 560 x 460
+      Ring center: 280, 228  radius: 108
+      Node positions:
+        Top    (Relationships):   280, 120
+        Right  (Guest Exp):       388, 228
+        Bottom (Record):          280, 336
+        Left   (Distribute):      172, 228
+
+      Label cards sit outside the ring with generous clearance.
+      Each card: rounded rect + step num + bold title + italic hint
+      Card dims approx: w=148, h=52, rx=6
+        Top card:    centered at 280, top edge ~18   → rect x=206 y=12
+        Right card:  left edge ~408                  → rect x=408 y=196
+        Bottom card: centered at 280, top edge ~380  → rect x=206 y=380
+        Left card:   right edge ~144                 → rect x=0   y=196
+    -->
+
+    <svg
+      width="560"
+      height="460"
+      viewBox="0 0 560 460"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <filter id="cs" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow
+            dx="0"
+            dy="1"
+            stdDeviation="2"
+            flood-color="#00000018"
+          />
+        </filter>
+      </defs>
+
+      <!-- dashed ring -->
+      <circle
+        cx="280"
+        cy="228"
+        r="108"
+        fill="none"
+        stroke="#f97316"
+        stroke-width="1.5"
+        stroke-dasharray="5 5"
+        opacity="0.3"
+      />
+
+      <!-- ── NODE TOP: Relationships ── -->
+      <circle cx="280" cy="120" r="42" fill="#f97316" />
+      <text
+        x="280"
+        y="115"
+        text-anchor="middle"
+        font-size="11"
+        font-weight="500"
+        fill="white"
+        font-family="sans-serif"
+      >
+        Relation-
+      </text>
+      <text
+        x="280"
+        y="130"
+        text-anchor="middle"
+        font-size="11"
+        font-weight="500"
+        fill="white"
+        font-family="sans-serif"
+      >
+        ships
+      </text>
+      <!-- TOP CARD -->
+      <rect
+        x="196"
+        y="8"
+        width="168"
+        height="54"
+        rx="6"
+        fill="white"
+        filter="url(#cs)"
+        stroke="#f0ede8"
+        stroke-width="0.5"
+      />
+      <text
+        x="210"
+        y="24"
+        font-size="8.5"
+        fill="#f97316"
+        font-family="sans-serif"
+        letter-spacing="1"
+        font-weight="500"
+      >
+        04
+      </text>
+      <text
+        x="210"
+        y="38"
+        font-size="12"
+        font-weight="500"
+        fill="#1a1a1a"
+        font-family="sans-serif"
+      >
+        Relationships
+      </text>
+      <text
+        x="210"
+        y="52"
+        font-size="9.5"
+        fill="#999"
+        font-family="sans-serif"
+        font-style="italic"
+      >
+        Guests become deals or referrals
+      </text>
+
+      <!-- ── NODE RIGHT: Guest Experience ── -->
+      <circle cx="388" cy="228" r="42" fill="#1E3A5F" />
+      <text
+        x="388"
+        y="223"
+        text-anchor="middle"
+        font-size="10.5"
+        font-weight="500"
+        fill="white"
+        font-family="sans-serif"
+      >
+        Guest
+      </text>
+      <text
+        x="388"
+        y="238"
+        text-anchor="middle"
+        font-size="10.5"
+        font-weight="500"
+        fill="white"
+        font-family="sans-serif"
+      >
+        Experience
+      </text>
+      <!-- RIGHT CARD -->
+      <rect
+        x="442"
+        y="192"
+        width="110"
+        height="60"
+        rx="6"
+        fill="white"
+        filter="url(#cs)"
+        stroke="#f0ede8"
+        stroke-width="0.5"
+      />
+      <text
+        x="456"
+        y="207"
+        font-size="8.5"
+        fill="#f97316"
+        font-family="sans-serif"
+        letter-spacing="1"
+        font-weight="500"
+      >
+        05
+      </text>
+      <text
+        x="456"
+        y="221"
+        font-size="12"
+        font-weight="500"
+        fill="#1a1a1a"
+        font-family="sans-serif"
+      >
+        Guest Exp.
+      </text>
+      <text
+        x="456"
+        y="235"
+        font-size="9.5"
+        fill="#999"
+        font-family="sans-serif"
+        font-style="italic"
+      >
+        Your ideal buyer
+      </text>
+      <text
+        x="456"
+        y="248"
+        font-size="9.5"
+        fill="#999"
+        font-family="sans-serif"
+        font-style="italic"
+      >
+        across from you
+      </text>
+
+      <!-- ── NODE BOTTOM: Record ── -->
+      <circle cx="280" cy="336" r="42" fill="#f97316" />
+      <text
+        x="280"
+        y="340"
+        text-anchor="middle"
+        font-size="11"
+        font-weight="500"
+        fill="white"
+        font-family="sans-serif"
+      >
+        Record
+      </text>
+      <!-- BOTTOM CARD -->
+      <rect
+        x="176"
+        y="394"
+        width="208"
+        height="54"
+        rx="6"
+        fill="white"
+        filter="url(#cs)"
+        stroke="#f0ede8"
+        stroke-width="0.5"
+      />
+      <text
+        x="192"
+        y="410"
+        font-size="8.5"
+        fill="#f97316"
+        font-family="sans-serif"
+        letter-spacing="1"
+        font-weight="500"
+      >
+        06
+      </text>
+      <text
+        x="192"
+        y="424"
+        font-size="12"
+        font-weight="500"
+        fill="#1a1a1a"
+        font-family="sans-serif"
+      >
+        Record
+      </text>
+      <text
+        x="192"
+        y="439"
+        font-size="9.5"
+        fill="#999"
+        font-family="sans-serif"
+        font-style="italic"
+      >
+        You show up. We run everything.
+      </text>
+
+      <!-- ── NODE LEFT: Distribute ── -->
+      <circle cx="172" cy="228" r="42" fill="#1E3A5F" />
+      <text
+        x="172"
+        y="232"
+        text-anchor="middle"
+        font-size="10.5"
+        font-weight="500"
+        fill="white"
+        font-family="sans-serif"
+      >
+        Distribute
+      </text>
+      <!-- LEFT CARD -->
+      <rect
+        x="4"
+        y="192"
+        width="120"
+        height="60"
+        rx="6"
+        fill="white"
+        filter="url(#cs)"
+        stroke="#f0ede8"
+        stroke-width="0.5"
+      />
+      <text
+        x="16"
+        y="207"
+        font-size="8.5"
+        fill="#f97316"
+        font-family="sans-serif"
+        letter-spacing="1"
+        font-weight="500"
+      >
+        07
+      </text>
+      <text
+        x="16"
+        y="221"
+        font-size="12"
+        font-weight="500"
+        fill="#1a1a1a"
+        font-family="sans-serif"
+      >
+        Distribute
+      </text>
+      <text
+        x="16"
+        y="235"
+        font-size="9.5"
+        fill="#999"
+        font-family="sans-serif"
+        font-style="italic"
+      >
+        20+ clips across
+      </text>
+      <text
+        x="16"
+        y="248"
+        font-size="9.5"
+        fill="#999"
+        font-family="sans-serif"
+        font-style="italic"
+      >
+        every channel
+      </text>
+
+      <!-- ── CENTER THESIS ── -->
+      <text
+        x="280"
+        y="214"
+        text-anchor="middle"
+        font-size="12"
+        font-weight="500"
+        fill="#f97316"
+        font-family="sans-serif"
+      >
+        Every guest is a
+      </text>
+      <text
+        x="280"
+        y="231"
+        text-anchor="middle"
+        font-size="12"
+        font-weight="500"
+        fill="#f97316"
+        font-family="sans-serif"
+      >
+        potential client.
+      </text>
+      <text
+        x="280"
+        y="250"
+        text-anchor="middle"
+        font-size="9.5"
+        fill="#bbb"
+        font-family="sans-serif"
+      >
+        The show is the pipeline.
+      </text>
+    </svg>
+  </div>
+
+  <!-- connector -->
+  <div class="connector-wrap">
+    <div class="conn-txt">built on this foundation</div>
+    <div class="conn-line"></div>
+    <div class="conn-arrow"></div>
+  </div>
+
+  <!-- FOUNDATION BLOCKS -->
+  <div class="blocks-wrap">
+    <div class="block b3">
+      <div class="block-inner">
+        <div class="block-num">03</div>
+        <div>
+          <div class="block-title">Onboarding Call</div>
+          <div class="block-outcome">Your show is built. Ready to record.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block b2">
+      <div class="block-inner">
+        <div class="block-num">02</div>
+        <div>
+          <div class="block-title">Select Your Plan</div>
+          <div class="block-outcome">
+            The right scope for where you are right now
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block b1">
+      <div class="block-inner">
+        <div class="block-num">01</div>
+        <div>
+          <div class="block-title">90 Min Strategy Call</div>
+          <div class="block-outcome">
+            Clarity on your show, your audience, and how guests become pipeline
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tagline">Strategy First. Outcomes Always. — 313 Media Co</div>
+</div>
