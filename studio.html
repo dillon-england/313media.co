@@ -87,7 +87,7 @@
         font-family: "Anton", sans-serif;
         font-size: clamp(52px, 8vw, 100px);
         line-height: 0.92;
-        letter-spacing: -0.01em;
+        letter-spacing: 0.03em;
         text-transform: uppercase;
         margin-bottom: 28px;
       }
@@ -122,7 +122,7 @@
         font-family: "Anton", sans-serif;
         font-size: clamp(32px, 4vw, 52px);
         text-transform: uppercase;
-        letter-spacing: 0.01em;
+        letter-spacing: 0.04em;
         line-height: 1.05;
         margin-bottom: 32px;
       }
@@ -214,7 +214,7 @@
         font-size: 52px;
         line-height: 1;
         color: var(--cream);
-        letter-spacing: -0.02em;
+        letter-spacing: 0.02em;
       }
 
       .stat-label {
@@ -262,6 +262,10 @@
 
       .package.featured h3 {
         color: white;
+        text-shadow:
+          1px 1px 2px #d04500,
+          0 0 1em #d04500,
+          0 0 0.2em #d04500;
       }
 
       .pkg-tier {
@@ -274,14 +278,14 @@
       }
 
       .package.featured .pkg-tier {
-        color: rgba(255, 255, 255, 0.7);
+        color: rgba(255, 255, 255);
       }
 
       .package h3 {
         font-family: "Anton", sans-serif;
         font-size: 26px;
         text-transform: uppercase;
-        letter-spacing: 0.02em;
+        letter-spacing: 0.05em;
         margin-bottom: 12px;
         color: var(--cream);
       }
@@ -327,7 +331,7 @@
       }
 
       .package.featured ul li::before {
-        color: rgba(255, 255, 255, 0.6);
+        color: rgba(255, 255, 255);
       }
 
       /* WHY NOW */
@@ -366,6 +370,7 @@
         font-family: "Anton", sans-serif;
         font-size: 22px;
         text-transform: uppercase;
+        letter-spacing: 0.05em;
         color: var(--cream);
         margin-bottom: 16px;
       }
@@ -458,20 +463,38 @@
         <div class="badge">Founding Sponsor Opportunity</div>
         <h1>313 Media<br /><span>Studio</span></h1>
         <p class="hero-sub">
-          Detroit's B2B podcast studio — built in partnership with Herman Moore
-          and Team 84 at 950 Stephenson Hwy, Troy, MI. Now accepting founding
-          partners before we break ground.
+          We're building Detroit's premiere B2B podcast production hub, in
+          partnership with Herman Moore and Team 84, at 950 Stephenson Hwy,
+          Troy, MI.
         </p>
+        <a
+          href="mailto:dillon@313media.co"
+          style="
+            display: inline-block;
+            margin-top: 8px;
+            background: var(--orange);
+            color: #111;
+            font-family: &quot;DM Sans&quot;, sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 14px 32px;
+            text-decoration: none;
+          "
+          >Reserve Your Spot</a
+        >
       </div>
     </div>
 
     <!-- RENDERS -->
     <div class="renders">
       <div class="section-label">The Space</div>
-      <h2>See What We're Building</h2>
+      <h2>The Plans Are Done</h2>
       <p>
-        These are the actual 3D renderings of the studio. We've already invested
-        in the design and planning. The build is ready to go.
+        The 3D renderings below are the actual plans.
+        <br />We've already invested in the design; the build starts when the
+        right partner says yes.
       </p>
       <div class="renders-grid">
         <div class="render-item main">
@@ -519,29 +542,27 @@
     <div class="why-now">
       <div class="text-side">
         <div class="section-label">The Opportunity</div>
-        <h2>Your Brand in Every Episode</h2>
+        <h2>The Whole Room Highlighting Your Brand.</h2>
         <div class="divider"></div>
         <p>
-          Most sponsorships put your brand in front of one show's audience. This
-          is different.
+          Most sponsorships tie your name to a single audience. This is
+          different.
         </p>
         <p>
-          313 Media runs a multi-client production hub. We have multiple shows
-          recording at this studio every week across manufacturing, professional
-          services, and financial services. Your brand is visible across all of
-          them, not just one show.
+          313 Media runs a multi-client production hub. Multiple shows record
+          here every week, across manufacturing, professional services, and
+          financial services. Your brand is in every episode across all of them.
         </p>
         <p>
-          Every business owner who records here sees your brand. Every guest
-          they bring in sees it. Every audience member watching those episodes
-          sees it. If you close just one deal from that exposure, the
-          sponsorship pays for itself.
+          Every business owner who records here sees it. Every guest they bring
+          sees it. Every audience member watching those episodes sees it. One
+          deal closed from that exposure and the sponsorship pays for itself.
         </p>
         <p>
-          The people walking through this studio are not casual content
-          creators. Our clients are business owners and executives, most of them
-          running companies north of $3 million in revenue. The guests they
-          bring on are the same caliber. This is a room full of decision makers.
+          The people walking through this studio aren't casual content creators.
+          Our clients run companies north of $3M. The guests they bring on are
+          the same caliber. This is a room full of decision-makers, and your
+          name is on the wall.
         </p>
         <div class="partner">
           <div class="partner-badge">In Partnership With</div>
@@ -566,8 +587,11 @@
         <div class="package">
           <div class="pkg-tier">Founding Partner</div>
           <h3>Studio Founding Partner</h3>
-          <div class="pkg-price">$25,000</div>
-          <div class="pkg-note">One-time investment</div>
+          <div class="pkg-price">$35,000</div>
+          <div class="pkg-note">
+            Naming rights for 12 months.
+            <br />One-time investment.
+          </div>
           <p
             style="
               font-size: 13px;
@@ -577,28 +601,27 @@
               line-height: 1.6;
             "
           >
-            The naming rights opportunity. Your brand is physically built into
-            the studio before the first episode is ever recorded. Naming rights
-            held for 12 months.
+            Your brand physically built into the studio before the first episode
+            is ever recorded.
           </p>
           <ul>
             <li>12-month naming rights to the studio</li>
-            <li>Your name or brand physically built into the studio</li>
-            <li>Logo featured in every episode produced here for 12 months</li>
-            <li>
-              Founding Partner recognition across 313 Media's website and
-              marketing
-            </li>
-            <li>Dedicated content at studio launch featuring your brand</li>
-            <li>Invitation to the launch event</li>
+            <li>Branding featured in every episode produced here</li>
+            <li>Recognition on 313 Media's website and in marketing</li>
+            <li>Invitation to the studio launch event</li>
+            <li>Dedicated launch content featuring your brand</li>
           </ul>
         </div>
 
         <div class="package">
-          <div class="pkg-tier">Content Partner</div>
-          <h3>Content Partner</h3>
-          <div class="pkg-price">$35,000</div>
-          <div class="pkg-note">Paid upfront — $48K value</div>
+          <div class="pkg-tier">Bundle</div>
+          <h3>Content Bundle</h3>
+          <div class="pkg-price">$50,000</div>
+          <div class="pkg-note">
+            Naming rights + a full year of production.
+            <br />
+            Saves $27,000.
+          </div>
           <p
             style="
               font-size: 13px;
@@ -608,42 +631,42 @@
               line-height: 1.6;
             "
           >
-            Pay a full year of production upfront at a significant discount.
-            Your investment funds the studio build, so you're getting a
-            world-class space built around your show in the process.
+            Your name in the studio and your show running from it.
+            <br />Everything in the Studio Founding Partner tier, plus:
           </p>
           <ul>
-            <li>24 podcast episodes per year (bi-weekly)</li>
-            <li>Full video production and editing</li>
-            <li>Short-form clips and social content</li>
-            <li>Studio recording at 950 Stephenson Hwy, Troy, MI</li>
-            <li>$13,000 in savings off standard annual pricing</li>
+            <li>24 episodes per year (bi-weekly show)</li>
+            <li>Professional video production and editing</li>
+            <li>120 short-form clips = 600+ posts</li>
+            <li>Studio recording in Troy, MI</li>
           </ul>
         </div>
 
         <div class="package featured">
           <div class="pkg-tier">Best Value</div>
-          <h3>Studio + Content Bundle</h3>
-          <div class="pkg-price">$50,000</div>
-          <div class="pkg-note">$60,000 if purchased separately</div>
+          <h3>Pro Content Bundle</h3>
+          <div class="pkg-price">$75,000</div>
+          <div class="pkg-note">
+            Everything but with maximum output. <br />
+            Saves $50,000.
+          </div>
           <p
             style="
               font-size: 13px;
-              color: rgba(255, 255, 255, 0.75);
+              color: rgba(17, 17, 17, 0.8);
               margin-bottom: 24px;
               max-width: 100%;
               line-height: 1.6;
             "
           >
-            You get the 12-month studio naming rights and a full year of
-            bi-weekly podcast production. Your name is on the studio and your
-            show is running out of it. Save $10,000 off combined pricing.
+            Everything in the Content Bundle, but a weekly show.
+            <br />Your name in everything.
           </p>
           <ul>
-            <li>Everything in the Studio Founding Partner tier</li>
-            <li>Everything in the Content Partner tier</li>
-            <li>24 episodes per year recorded at your named studio</li>
-            <li>$10,000 in savings off combined pricing</li>
+            <li>52 episodes per year (weekly show)</li>
+            <li>Premiere video production and editing</li>
+            <li>260 short-form clips = 1,300+ posts</li>
+            <li>Priority scheduling in Troy, MI</li>
           </ul>
         </div>
       </div>
@@ -655,33 +678,33 @@
       <h2>Why We're Looking<br />for a Partner</h2>
       <div class="divider"></div>
       <p>
-        313 Media launched October 1st, 2025. We are growing fast, but we are
-        also still building up our cash reserves and reinvesting heavily into
-        the business.
+        313 Media launched October 1st, 2025. We're growing fast and reinvesting
+        hard.
       </p>
       <p>
-        Could we fund the studio ourselves? Eventually, yes. But we are more
-        interested in finding the right partner than waiting until we can do it
-        alone. We have already invested in professional 3D renderings of the
-        space, so this is not a concept on a napkin. The plans are done and we
-        are ready to build.
+        Could we fund the build ourselves? Eventually. We'd rather find the
+        right partner and move now than wait until we can do it alone. The plans
+        are done. The renderings are done. The build starts when the right
+        person steps in.
       </p>
       <p>
-        The right sponsor gets in early, gets permanent recognition, and becomes
-        part of something that's going to keep growing. We get to move faster
-        and build something better with a partner behind us than we would on our
-        own.
+        The right founding sponsor gets in before anything is built, gets
+        permanent recognition, and becomes part of something that's going to
+        keep growing. We move faster with a partner. That's a better deal for
+        both sides.
       </p>
     </section>
 
     <!-- CTA -->
     <div class="cta">
       <div class="section-label" style="text-align: center">Let's Talk</div>
-      <h2>The Founding Partner Window Closes When We Break Ground</h2>
+      <h2>The Window Closes When<br />We Break Ground</h2>
       <p>
-        After the build, naming rights and permanent logo placement are gone.
-        What replaces them is standard advertising with no equity attached.
+        After the build, naming rights and permanent placement are gone. What's
+        available after that is standard advertising with no founding
+        recognition attached.
       </p>
+      <p>Ready to talk?</p>
       <div class="cta-contact">
         Dillon England &nbsp;|&nbsp; <span>dillon@313media.co</span>
       </div>
