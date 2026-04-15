@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l /c/Users/canno/Documents/313/313media.co/*.html)",
+      "Bash(grep -i \"bootstrap\\\\|tailwind\\\\|materialize\\\\|foundation\" /c/Users/canno/Documents/313/313media.co/*.html)",
+      "Bash(grep -i \"jquery\\\\|handlebars\\\\|nunjucks\\\\|ejs\\\\|pug\\\\|jekyll\\\\|hugo\\\\|11ty\\\\|webpack\\\\|gulp\\\\|vite\\\\|parcel\" /c/Users/canno/Documents/313/313media.co/*.html)"
+    ]
+  }
+}

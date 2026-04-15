@@ -846,26 +846,11 @@
         }
       }
     </style>
+    <script src="/components.js" defer></script>
   </head>
   <body>
     <!-- NAV -->
-    <nav>
-      <a href="/index.html" class="logo">
-        <span class="logo-num">313</span>
-        <span class="logo-text">MEDIA CO</span>
-      </a>
-      <button class="hamburger" id="hamburger">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="nav-menu" id="navMenu">
-        <a href="/index.html">Home</a>
-        <a href="/services.html">Podcast Strategy & Solutions</a>
-        <a href="/content-overload.html">Content Overload</a>
-        <a href="/about.html">About</a>
-        <a href="/why-us.html">Why Us</a>
-        <a href="/index.html#contact" class="nav-cta">Let's Talk</a>
-      </div>
-    </nav>
+    <div id="nav-placeholder"></div>
 
     <!-- PAGE HEADER -->
     <header class="page-header">
@@ -1073,77 +1058,14 @@
         Let's talk about how a podcast built the right way can become your most
         powerful business development tool.
       </p>
-      <a href="https://calendly.com/dillon-313" class="cta-button"
+      <a
+        href="https://calendly.com/dillon-313mediaco/discovery-call"
+        class="cta-button"
         >Schedule Your Strategy Call</a
       >
     </section>
 
     <!-- FOOTER -->
-    <footer>
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <h3>313</h3>
-          <p class="footer-tagline">STRATEGY FIRST. OUTCOMES ALWAYS.</p>
-          <p class="footer-bio">
-            We help B2B companies (Metro Detroit-based and remote) turn podcasts
-            into business development engines. Built by someone with 6+ years of
-            commission sales experience who actually understands how deals get
-            done.
-          </p>
-        </div>
-        <div class="footer-col">
-          <h4>Services</h4>
-          <a href="/services.html">All Services</a>
-          <a href="/services.html#item-1">Starting Fresh</a>
-          <a href="/services.html#item-2">Fixing Podcasts</a>
-          <a href="/services.html#item-3">Content Overload</a>
-        </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <a href="/about.html">About</a>
-          <a href="https://www.youtube.com/@dillonengland" target="_blank"
-            >The Show</a
-          >
-          <a href="/index.html#contact">Contact</a>
-        </div>
-        <div class="footer-col">
-          <h4>Connect</h4>
-          <a
-            href="https://www.linkedin.com/company/313-media-co"
-            target="_blank"
-            >LinkedIn</a
-          >
-          <a href="https://www.youtube.com/@DillonEngland" target="_blank"
-            >YouTube</a
-          >
-          <a href="https://www.instagram.com/imdillonengland/" target="_blank"
-            >Instagram</a
-          >
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2025 313 Media Co. Detroit, Michigan.</p>
-      </div>
-    </footer>
-
-    <script>
-      // Hamburger menu toggle
-      const hamburger = document.getElementById("hamburger");
-      const navMenu = document.getElementById("navMenu");
-
-      if (hamburger) {
-        hamburger.addEventListener("click", () => {
-          hamburger.classList.toggle("active");
-          navMenu.classList.toggle("active");
-        });
-
-        navMenu.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", () => {
-            hamburger.classList.remove("active");
-            navMenu.classList.remove("active");
-          });
-        });
-      }
-    </script>
+    <div id="footer-placeholder"></div>
   </body>
 </html>
